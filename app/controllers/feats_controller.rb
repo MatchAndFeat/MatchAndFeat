@@ -1,10 +1,11 @@
 class FeatsController < ApplicationController
+  before_action :set_feat, except: [:index, :new]
+
   def index
     @feats = Project.find(params[:project_id]).feats.order(id: :desc)
   end
 
   def show
-    @feat = Feat.find(params[:id])
   end
   
   def new
@@ -26,11 +27,9 @@ class FeatsController < ApplicationController
   end
 
   def edit
-    @feat = Feat.find(params[:id])
   end
 
   def update
-    @feat = Feat.find(params[:id])
       if @feat.update_attributes(feat_params)
         flash[:success] = "Votre Feat a bien été édité"
         redirect_to @feat
@@ -41,7 +40,6 @@ class FeatsController < ApplicationController
   end
   
   def destroy
-    @feat = Feat.find(params[:id])
     if @feat.destroy
       flash[:success] = 'Votre Feat a bien été supprimé.'
       redirect_to projects_path(params[:project_id])
@@ -55,5 +53,9 @@ class FeatsController < ApplicationController
 
   def feat_params
     params.require(:feat).permit(:title, :attachement)
+  end
+
+  def set_feat
+    @feat = Feat.find(params[:id])
   end
 end
