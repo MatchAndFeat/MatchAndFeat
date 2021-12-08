@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'projects#index'
+  devise_for :users, :path => "/Mon_Profil"
+  
+  resources :projects, :path => "/Mes_projets" do
+    resources :feats, :path => "/Mes_feats"
+  end
+
 end
