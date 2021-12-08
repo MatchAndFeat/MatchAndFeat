@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, except: [:index, :new]
+
   def index
     @projects = Project.all.order(id: :desc)
   end
 
   def show
-    @project = Project.find(params[:id])
   end
   
   def new
@@ -23,22 +24,19 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
-      if @project.update_attributes(project_params)
-        flash[:success] = "Votre Projet a bien été édité"
-        redirect_to @project
-      else
-        flash[:error] = "Il y a eu un problème lors de la modification de votre Projet."
-        render 'edit'
-      end
+    if @project.update_attributes(project_params)
+      flash[:success] = "Votre Projet a bien été édité"
+      redirect_to @project
+    else
+      flash[:error] = "Il y a eu un problème lors de la modification de votre Projet."
+      render 'edit'
+    end
   end
   
   def destroy
-    @project = Project.find(params[:id])
     if @project.destroy
       flash[:success] = 'Votre Projet a bien été supprimé.'
       redirect_to root_path
@@ -52,5 +50,9 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description)
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 end
