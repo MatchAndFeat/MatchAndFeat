@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
   before_action :set_project, except: [:index, :new]
+  before_action :ownership_verification, only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.all.order(id: :desc)
@@ -14,6 +16,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.user = current_user
     if @project.save
       flash[:success] = "Votre projet a bien été crée !"
       redirect_to @project
@@ -54,5 +57,12 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def ownership_verification
+    unless @project.user = current_user
+      flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
+      redirect_to root_path
+    end
   end
 end
