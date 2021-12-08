@@ -1,5 +1,6 @@
 class FeatsController < ApplicationController
   before_action :set_feat, except: [:index, :new]
+  before_action :ownership_verification, only: [:edit, :update, :destroy]
 
   def index
     @feats = Project.find(params[:project_id]).feats.order(id: :desc)
@@ -57,5 +58,12 @@ class FeatsController < ApplicationController
 
   def set_feat
     @feat = Feat.find(params[:id])
+  end
+
+  def ownership_verification
+    unless @feat.user = current_user
+      flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
+      redirect_to root_path
+    end
   end
 end
