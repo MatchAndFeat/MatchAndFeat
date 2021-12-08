@@ -4,7 +4,7 @@ class FeatsController < ApplicationController
   end
 
   def show
-    @feat = Feat.find(params[:feat_id])
+    @feat = Feat.find(params[:id])
   end
   
   def new
@@ -44,10 +44,10 @@ class FeatsController < ApplicationController
     @feat = Feat.find(params[:id])
     if @feat.destroy
       flash[:success] = 'Votre Feat a bien été supprimé.'
-      redirect_to feats_url
+      redirect_to projects_path(params[:project_id])
     else
       flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Feat.'
-      redirect_to feats_url
+      redirect_to @feat
     end
   end
 
