@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
   end
 
   def ownership_verification
-    unless @project.user = current_user
+    unless @project.user == current_user
       flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
       redirect_to root_path
     end
