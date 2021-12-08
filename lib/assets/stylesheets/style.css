@@ -9202,7 +9202,10 @@ fieldset:disabled .btn {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 500px;
-    padding-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .showcase .showcase-img {
