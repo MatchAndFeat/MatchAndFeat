@@ -12,7 +12,10 @@ class FeatsController < ApplicationController
   end
 
   def create
-    @feat = Feat.new(params[:feat])
+    @feat = Feat.new(feat_params)
+    @feat.user = current_user
+    @feat.project = Project.find(params[:project_id])
+
     if @feat.save
       flash[:success] = "Votre Feat a bien été publié !"
       redirect_to @feat
@@ -28,11 +31,11 @@ class FeatsController < ApplicationController
 
   def update
     @feat = Feat.find(params[:id])
-      if @feat.update_attributes(params[:feat])
+      if @feat.update_attributes(feat_params)
         flash[:success] = "Votre Feat a bien été édité"
         redirect_to @feat
       else
-        flash[:error] = "Il y a eu un problème lors de la modification de votre Feat."
+        flash[:warning] = "Il y a eu un problème lors de la modification de votre Feat."
         render 'edit'
       end
   end
@@ -43,8 +46,14 @@ class FeatsController < ApplicationController
       flash[:success] = 'Votre Feat a bien été supprimé.'
       redirect_to feats_url
     else
-      flash[:error] = 'Il y a eu un problème lors de la suppression de votre Feat.'
+      flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Feat.'
       redirect_to feats_url
     end
+  end
+
+  private
+
+  def feat_params
+    params.require(:feat).permit(:title, :attachement)
   end
 end
