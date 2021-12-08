@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
+  before_action :require_login, except: [:index, :show]
   before_action :set_project, except: [:index, :new]
   before_action :ownership_verification, only: [:edit, :update, :destroy]
 
