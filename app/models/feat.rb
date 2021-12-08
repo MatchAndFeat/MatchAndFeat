@@ -1,4 +1,5 @@
 class Feat < ApplicationRecord
     belongs_to :project
-    has_many :users
+    belongs_to :user
+    validates :title, presence: true, length: { in: 5..150 }  
 end
