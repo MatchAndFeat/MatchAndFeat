@@ -9244,4 +9244,12 @@ fieldset:disabled .btn {
   align-items: center;
 }
 
+#text_input_for_project{
+  width: 60vh;
+}
 
+@media (max-width: 500px){
+  #text_input_for_project{
+    width: 300px;
+  }
+}
