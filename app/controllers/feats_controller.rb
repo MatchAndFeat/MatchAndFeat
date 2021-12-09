@@ -54,7 +54,7 @@ class FeatsController < ApplicationController
   private
 
   def feat_params
-    params.require(:feat).permit(:title, :attachement)
+    params.require(:feat).permit(:title, attachements: [])
   end
 
   def set_feat
