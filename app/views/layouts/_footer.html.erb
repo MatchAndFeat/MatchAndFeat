@@ -1,15 +1,29 @@
 
 <footer class="footer bg-dark">
-        <% if user_signed_in? %>
-                <%= link_to "Créer une projet", new_project_path, class: "nav-link" %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Modifier mon profil", edit_user_registration_path, class: "nav-link "%>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "nav-link "%>
-        <% else %>
-                <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-                <div class="dropdown-divider"></div>
-        <% end %>
+    <div class="footer-container">
+        <div class="left-col">
+          <img src="logo.png" alt="" class="logo">
+          <div class="social-media">
+            <a href="https://fr-fr.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            <a href="https://fr.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="rights-text">© 2021 THP Created By <b>La Team :</b>  
+           <a href="https://github.com/fleopaulD">Florent</a>
+           <a href="https://github.com/HaryRabarijoely">Hary</a>
+           <a href="https://github.com/joffrey7486">Joffrey</a>
+           <a href="https://github.com/kalu6334">Lucas</a>
+           <a href="https://github.com/KevinPiriou">Kevin</a>       
+          </p>
+        </div>
+ 
+        <div class="right-col">
+          <h1>MatchAndFeat</h1>
+          <div class="border"></div>
+          <p>lien pour plus de détails</p>
+          <a href="https://github.com/MatchAndFeat/MatchAndFeat" >Github</a>
+        </div>
+      </div>
 </footer>
