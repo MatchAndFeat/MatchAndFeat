@@ -1,58 +1,63 @@
 <div class="col-12"></div>
 <h1 class="text-center"><%= @project.title %></h1>
 <div class="col-12 d-flex flex-column align-items-center">
-            
-  <div class="card col-lg-10 mx-1 my-2 bg-primary border-success">
-    <div class="media m-2 d-flex ">
-      <img src="/team/team_lucas.jpg" class="rounded-circle" style="height: 50px;" alt="">
-      <div class="media-body">
-        <%= @project.user.user_name %>
-        <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
-      </div>
-      <img src="/img/default.jpeg" alt="" class="col-lg-3 m-2" style="height: 200px;">
+          
+<div class="card col-lg-10 mx-1 my-2 bg-primary border-success">
+  <div class="media m-2 d-flex ">
+    <img src="/team/team_lucas.jpg" class="rounded-circle" style="height: 50px;" alt="">
+    <div class="media-body">
+      <%= @project.user.user_name %>
+      <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
     </div>
-    <div class="card-body bg-primary">
-      <p class="card-text"><%=@project.description %></p>
-    </div>
-                  <!-- Comments -->
-    <h4 class="card-header text-center">Feats</h4>
-    <div class="card-body border-success">
-      <% @project.feats.each do |feat| %>
-      <div class="media pb-1 mb-3">
-        <img src="/team/team_flo.jpg" style="height: 50px;" class="rounded-circle" alt="">
-        <div class="media-body ml-3 border-success">
-    
-          <%= feat.user.user_name %>
-                    
-          <p class="my-1"><%= feat %></p>
-          <div class="clearfix">
-            <a href="javascript:void(0)" class="float-right text-lightest small">
-              <span class="ion ion-ios-thumbs-down"></span>
-            </a>
-            <a href="javascript:void(0)" class="float-right text-lightest small">
-              <span class="ion ion-ios-thumbs-up mr-2"></span>
-            </a>
-            <span class="float-left text-muted small"><%= feat.created_at.strftime('%e %b %Y')%></span>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-      
-    <div style="border-top: 1px solid #ecc93c;margin: 50px 0;"></div>
-    <form class="new_user" id="new_user" action="/Mon_Profil" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="gDvHRRNqws42d7LeeA4yZnvY6RV8htPOg/65Fic76X4sajHZS0rEeAThUYu4z7tFjEySJl/dTM8Oig+f49x22g==">
-      <h1 class="h3 mb-3 fw-normal">Donne ta participation</h1>
-      <div class="form-floating mt-2">
-        <div class="field d-flex flex-column justify-content-center">
-          <label for="user_pseudo">Feat</label><br>
-          <textarea class="form-control" style="width: 200%;" id="message" placeholder="Enter your message here..." data-sb-validations="required" data-sb-can-submit="no"></textarea>
-        </div>
-      </div>
-      <div class="actions mt-5">
-        <input type="submit" name="commit" value="Ajoute ton feat" class=" btn btn-secondary" data-disable-with="S'inscrire">
-        <a href="#" class="btn btn-secondary">Retour à l'accueil</a>
-      </div>
-    </form>
+    <img src="/img/default.jpeg" alt="" class="col-lg-3 m-2" style="height: 200px;">
   </div>
+  <div class="card-body bg-primary">
+    <p class="card-text"><%=@project.description %></p>
+  </div>
+
+  <!-- Comments -->
+  <h4 class="card-header text-center">Feats</h4>
+  <div class="card-body border-success">
+    <% if @project.feats.count < 1 %>
+      <p>Aucun feat pour le moment... À toi de jouer !</p>
+    <% end %>
+    <% @project.feats.each do |feat| %>
+    <div class="media pb-1 mb-3">
+      <img src="/team/team_flo.jpg" style="height: 50px;" class="rounded-circle" alt="">
+      <div class="media-body ml-3 border-success">
+  
+        <%= feat.user.user_name %>
+                  
+        <p class="my-1"><%= feat %></p>
+        <div class="clearfix">
+          <a href="javascript:void(0)" class="float-right text-lightest small">
+            <span class="ion ion-ios-thumbs-down"></span>
+          </a>
+          <a href="javascript:void(0)" class="float-right text-lightest small">
+            <span class="ion ion-ios-thumbs-up mr-2"></span>
+          </a>
+          <span class="float-left text-muted small"><%= feat.created_at.strftime('%e %b %Y')%></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+      
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<div class="field d-flex flex-column align-items-center justify-content-center">
+  <%= form_tag(project_feats_path(@project.id), class:"bg-primary w-50", :method => "post") do %>
+    <h3 class="mb-3 fw-normal text-center">Apporte ta participation</h3>
+    <div class="form-floating d-flex flex-column mt-2">
+      <%= text_area_tag :title ,params[:title], placeholder: "Ajoute ton feat"%>
+      <%= submit_tag "Submit", class:'btn btn-primary m-3' %>
+    </div>
+  <% end %>
 </div>
+
+
+
+
+
+
+
         
