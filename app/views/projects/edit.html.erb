@@ -1,0 +1,11 @@
+<div class="d-flex flex-column justify-content-center align-items-center text-center col-12" style="height:70vh;">  
+  <h1>Modifie ton projet</h1>
+  <%= render 'form', project: @project %>
+
+<h3>Fichiers liés à ce projet</h3>
+
+<% @project.attachements.each do |attachement| %>
+<%= attachement.filename %>
+<%= link_to "Supprimer", attachement_path(attachement), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger" %>
+<% end %>
+</div>

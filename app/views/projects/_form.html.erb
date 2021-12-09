@@ -1,0 +1,37 @@
+  <%= form_with(model: project) do |f| %>
+        
+  <div class="form-floating mt-2">
+    <div class="field mb-2">
+      <%= f.label 'Titre' %><br />
+      <%= f.text_field :title, required: true %><br />
+    </div>
+  </div>
+
+  <div class="form-floating mt-2">
+    <div class="field mb-2">
+      <%= f.label 'Description' %><br />
+      <%= f.text_area :description, required: true %><br />
+    </div>
+  </div>
+
+  <div class="form-floating mt-2">
+    <div class="field mb-2">
+      <%= f.label "Image d'illustration de votre projet" %><br />
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+
+   <div class="form-floating mt-2">
+    <div class="field mb-2">
+      <%= f.label "Fichiers Joints" %><br />
+      <%= f.file_field :attachements, multiple: true, direct_upload: true %>
+    </div>
+  </div>
+
+  <div class="form-floating mt-2">
+    <div class="field mb-2">
+      <%= f.submit "Créer", class:"btn btn-secondary"%>
+    </div>
+  </div>
+
+  <% end %>
