@@ -9259,4 +9259,11 @@ fieldset:disabled .btn {
   #text_input_for_project{
     width: 300px;
   }
+  .one-card-custom{
+    flex-direction: column!important;
+    align-items: center;
+  }
+  .one-card-custom img{
+    width: 90%;
+  }
 }
