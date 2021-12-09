@@ -1,0 +1,33 @@
+<div class="d-flex flex-column justify-content-center align-items-center text-center col-12" style="height:70vh;">  
+    <h1>Créer ton projet</h1>
+
+    <%= form_tag url_for(action: 'create'), multipart: true do %>
+        
+        <div class="form-floating mt-2">
+            <div class="field mb-2">
+                <%= label_tag 'Titre' %><br />
+                <%= text_field_tag 'title', @project.title %><br />
+            </div>
+        </div>
+
+        <div class="form-floating mt-2">
+            <div class="field mb-2">
+                <%= label_tag 'Description' %><br />
+                <%= text_field_tag 'description', @project.description %><br />
+            </div>
+        </div>
+
+        <div class="form-floating mt-2">
+            <div class="field mb-2">
+                <%= label_tag 'Fichiers' %><br />
+                <%= file_field_tag 'attachements', @project.attachements %><br />
+            </div>
+        </div>
+
+        <div class="form-floating mt-2">
+            <div class="field mb-2">
+                <%= submit_tag "Créer", class:"btn btn-secondary"%>
+            </div>
+        </div>
+    <% end %>
+</div>

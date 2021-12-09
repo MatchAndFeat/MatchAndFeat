@@ -7,16 +7,17 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <%= link_to "Projets", projects_path, class: "nav-link active"%>
+                    <%= link_to "Projets", projects_path, class: "nav-link"%>
                 </li>
                     <% if user_signed_in? %>
-                        <%= link_to "Mes collabs", projects_path(current_user) ,class: "nav-link active"%>
+                        <%= link_to "Mes collabs", projects_path(current_user) ,class: "nav-link "%>
+                        <%= link_to "Créer une collab", new_project_path, class: "nav-link" %>
                         <div class="dropdown-divider"></div>
-                        <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "nav-link active"%>
+                        <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "nav-link "%>
                     <% else %>
-                        <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link active" %>
+                        <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %>
                         <div class="dropdown-divider"></div>
-                        <%= link_to "Se connecter", new_user_session_path, class: "nav-link active" %>
+                        <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
                     <% end %>
                     </div>
                 </li>
