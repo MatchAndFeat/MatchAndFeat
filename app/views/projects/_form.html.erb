@@ -1,5 +1,16 @@
-  <%= form_with(model: project) do |f| %>
-        
+  <%= form_with(model: project, local: true) do |f| %>
+    <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-floating mt-2">
     <div class="field mb-2">
       <%= f.label 'Titre' %><br />
