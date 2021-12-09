@@ -1,35 +1,4 @@
 <div class="d-flex flex-column justify-content-center align-items-center text-center col-12" style="height:70vh;">  
   <h1>Créer ton projet</h1>
-
-  <%= form_with(model: @project) do |f| %>
-        
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label 'Titre' %><br />
-      <%= f.text_field :title, required: true %><br />
-    </div>
-  </div>
-
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label 'Description' %><br />
-      <%= f.text_area :description, required: true %><br />
-    </div>
-  </div>
-
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label "Image d'illustration de votre projet" %>
-      <%= f.file_field :picture %>
-    </div>
-  </div>
-
-
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.submit "Créer", class:"btn btn-secondary"%>
-    </div>
-  </div>
-
-  <% end %>
+  <%= render 'form', project: @project %>
 </div>
