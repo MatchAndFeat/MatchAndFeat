@@ -2,14 +2,14 @@
 <h1 class="text-center"><%= @project.title %></h1>
 <div class="col-12 d-flex flex-column align-items-center">
 
-  <div class="card  w-90 col-lg-10 mx-1 my-2 bg-primary border-success">
+  <div class="card col-lg-10 mx-1 my-2 bg-primary border-success">
     <div class="media m-2 d-flex ">
-      <img src="/team/team_lucas.jpg" class="rounded-circle" style="height: 50px;" alt="">
+
       <div class="media-body">
         <%= @project.user.user_name %>
         <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
       </div>
-      <img src="/img/default.jpeg" alt="" class="col-lg-3 m-2" style="height: 200px;">
+      <img src="#" alt="" class="col-lg-3 m-2" style="height: 200px;">
     </div>
     <div class="card-body bg-primary">
       <p class="card-text"><%=@project.description %></p>
@@ -23,7 +23,7 @@
       <% end %>
       <% @project.feats.each do |feat| %>
       <div class="media pb-1 mb-3">
-        <img src="/team/team_flo.jpg" style="height: 50px;" class="rounded-circle" alt="">
+
         <div class="media-body ml-3 border-success">
           <%= feat.user.user_name %>
           <p class="my-1"><%= feat %></p>
@@ -43,11 +43,11 @@
 
     <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
     <div class="field d-flex flex-column align-items-center justify-content-center">
-      <%= form_for([@project, @feat],html: {class: "w-100"}, :method => "post") do |f| %>
+      <%= form_for([@project, @feat], class:"bg-primary w-50", :method => "post") do |f| %>
       <h3 class="mb-3 fw-normal text-center">Apporte ta participation</h3>
-      <div class="form-floating d-flex align-items-center flex-column mt-2">
-        <%= f.text_area :title, placeholder: "Ajoute ton feat", class:"w-50"%>
-        <%= submit_tag "Submit", class:'btn btn-secondary m-3 w-25' %>
+      <div class="form-floating d-flex flex-column mt-2">
+        <%= f.text_area :title, placeholder: "Ajoute ton feat"%>
+        <%= submit_tag "Submit", class:'btn btn-primary m-3' %>
       </div>
       <% end %>
     </div>
