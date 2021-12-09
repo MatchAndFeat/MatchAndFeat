@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   after_create :welcome_send
+  after_create :username_attribution
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :user_name, presence: true
   validates :email,
       presence: true,
       uniqueness: true,
@@ -19,4 +19,7 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
   
+  def username_attribution
+    self.update(user_name: "Pseudo#{self.id }")
+  end
 end

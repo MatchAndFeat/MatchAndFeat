@@ -62,7 +62,7 @@ class FeatsController < ApplicationController
   end
 
   def ownership_verification
-    unless @feat.user = current_user
+    unless @feat.user == current_user
       flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
       redirect_to root_path
     end
