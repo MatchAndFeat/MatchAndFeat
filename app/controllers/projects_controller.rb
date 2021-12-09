@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @feat = Feat.new
   end
   
   def new
