@@ -1,3 +1,4 @@
+
 <footer class="footer bg-dark">
         <% if user_signed_in? %>
                 <%= link_to "Créer une projet", new_project_path, class: "nav-link" %>
@@ -11,10 +12,4 @@
                 <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
                 <div class="dropdown-divider"></div>
         <% end %>
-        <!--<a class="nav-link" href="#!">Qui sommes-nous ?</a>
-        <a class="nav-link" href="#!">Contact</a>
-        <a class="nav-link" href="#!">Terms of Use</a>
-        <a class="nav-link" href="#!">Privacy Policy</a>-->
-        <a class="nav-link" href="https://github.com/MatchAndFeat/MatchAndFeat">Le Projet</a>
-        <p class="text-muted small mb-4 mb-lg-0">© Match&Feat 2021. All Rights Reserved.</p>
 </footer>
