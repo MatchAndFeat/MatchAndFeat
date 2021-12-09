@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index]
   before_action :set_project, except: [:index, :new, :create]
   before_action :ownership_verification, only: [:edit, :update, :destroy]
 
@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @feat = Feat.new
   end
   
   def new

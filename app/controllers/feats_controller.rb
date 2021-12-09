@@ -1,6 +1,6 @@
 class FeatsController < ApplicationController
   before_action :require_login, except: [:index, :show]
-  before_action :set_feat, except: [:index, :new]
+  before_action :set_feat, except: [:index, :new, :create]
   before_action :ownership_verification, only: [:edit, :update, :destroy]
 
   def index
@@ -21,10 +21,10 @@ class FeatsController < ApplicationController
 
     if @feat.save
       flash[:success] = "Votre Feat a bien été publié !"
-      redirect_to @feat
+      redirect_to project_path(params[:project_id])
     else
-      flash[:error] = "Il y eu un problème lors de la création de votre Feat."
-      render 'new'
+      flash[:warning] = "Il y eu un problème lors de la création de votre Feat."
+      redirect_to project_path(params[:project_id])
     end
   end
 
