@@ -1,37 +1,41 @@
-  <%= form_with(model: project) do |f| %>
-        
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label 'Titre' %><br />
-      <%= f.text_field :title, required: true %><br />
-    </div>
-  </div>
 
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label 'Description' %><br />
-      <%= f.text_area :description, required: true %><br />
-    </div>
-  </div>
 
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label "Image d'illustration de votre projet" %><br />
-      <%= f.file_field :picture %>
-    </div>
-  </div>
+<%= form_with(model: project, html: {class: "w-100"}) do |f| %>   
 
-   <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.label "Fichiers Joints" %><br />
-      <%= f.file_field :attachements, multiple: true, direct_upload: true %>
-    </div>
+<div class="form-floating mt-2 ">
+  <div class="field mb-2 ">
+    <%= f.label 'Titre' %><br />
+    <%= f.text_field :title, required: true, id:"text_input_for_project" %><br />
   </div>
+</div>
 
-  <div class="form-floating mt-2">
-    <div class="field mb-2">
-      <%= f.submit "Créer", class:"btn btn-secondary"%>
-    </div>
+<div class="form-floating mt-2 ">
+  <div class="field mb-2 ">
+    <%= f.label 'Description' %><br />
+    <%= f.text_area :description, required: true, id:"text_input_for_project" %><br />
   </div>
+</div>
 
-  <% end %>
+<div class="form-floating mt-3">
+  <div class="field mb-2"><br />
+    <%= f.label "Image d'illustration de votre projet", class:"mb-2" %><br />
+    <%= f.file_field :picture %><br />
+  </div>
+</div>
+
+<div class="form-floating mt-3">
+  <div class="field mb-2"><br />
+    <%= f.label "Fichiers Joints", class:"mb-2" %><br />
+    <%= f.file_field :attachements, multiple: true, direct_upload: true %><br />
+  </div>
+</div>
+
+<div class="form-floating mt-2">
+  <div class="field mb-2"><br />
+    <%= f.submit "Créer", class:"btn btn-secondary px-4"%><br />
+  </div>
+</div>
+
+<% end %>
+
+
