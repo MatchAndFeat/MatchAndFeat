@@ -14,9 +14,13 @@
     <div class="card-body bg-primary">
       <p class="card-text"><%=@project.description %></p>
     </div>
-                  <!-- Comments -->
+    
+    <!-- Comments -->
     <h4 class="card-header text-center">Feats</h4>
     <div class="card-body border-success">
+      <% if @project.feats.count < 1 %>
+        <p>Aucun feat pour le moment... À toi de jouer !</p>
+      <% end %>
       <% @project.feats.each do |feat| %>
       <div class="media pb-1 mb-3">
         <img src="/team/team_flo.jpg" style="height: 50px;" class="rounded-circle" alt="">
@@ -39,7 +43,7 @@
       <% end %>
     </div>
       
-    <div style="border-top: 1px solid #ecc93c;margin: 50px 0;"></div>
+    <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
     <form class="new_user" id="new_user" action="/Mon_Profil" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="gDvHRRNqws42d7LeeA4yZnvY6RV8htPOg/65Fic76X4sajHZS0rEeAThUYu4z7tFjEySJl/dTM8Oig+f49x22g==">
       <h1 class="h3 mb-3 fw-normal">Donne ta participation</h1>
       <div class="form-floating mt-2">
