@@ -8,6 +8,10 @@
       <div class="media-body">
         <%= @project.user.user_name %>
         <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
+        <% if @project.user == current_user %>
+          <%= link_to "Modifier", edit_project_path(@project.id)%>
+        <% end%>
+
       </div>
       <% if @project.picture.attached? %>
         <%= image_tag @project.picture,alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
@@ -35,6 +39,7 @@
     </div>
 
     <!-- Comments -->
+    <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
     <h4 class="card-header text-center">Feats</h4>
     <div class="card-body border-success">
       <% if @project.feats.count < 1 %>
