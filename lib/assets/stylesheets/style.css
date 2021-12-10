@@ -9251,6 +9251,10 @@ fieldset:disabled .btn {
   align-items: center;
 }
 
+#new_feat{
+  width: 400px;
+}
+
 #text_input_for_project{
   width: 60vh;
 }
@@ -9258,6 +9262,9 @@ fieldset:disabled .btn {
 @media (max-width: 500px){
   #text_input_for_project{
     width: 300px;
+  }
+  #new_feat{
+    width: 200px;
   }
   .one-card-custom{
     flex-direction: column!important;
