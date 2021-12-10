@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <!-- Comments -->
+    <!-- feat -->
     <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
     <h4 class="card-header text-center">Feats</h4>
     <div class="card-body border-success">
@@ -61,6 +61,8 @@
             </a>
             <span class="float-left text-muted small"><%= feat.created_at.strftime('%e %b %Y')%></span>
           </div>
+          <%= link_to "Modifier", edit_project_feat_path(@project, feat),class:"link-modify" %>
+          <%= link_to "Supprimer", project_feat_path(@project, feat), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce feat ?" } , class:"link-delete" %>
         </div>
       </div>
       <% end %>
