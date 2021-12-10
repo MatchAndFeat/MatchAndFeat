@@ -2,17 +2,36 @@
 <h1 class="text-center"><%= @project.title %></h1>
 <div class="col-12 d-flex flex-column align-items-center">
 
-  <div class="card col-lg-10 mx-1 my-2 bg-primary border-success">
+  <div class="card w-90 col-lg-10 mx-1 my-2 bg-primary border-success">
     <div class="media m-2 d-flex ">
 
       <div class="media-body">
         <%= @project.user.user_name %>
         <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
       </div>
-      <img src="#" alt="" class="col-lg-3 m-2" style="height: 200px;">
+      <% if @project.picture.attached? %>
+        <%= image_tag @project.picture,alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
+      <% else %>
+        <%= image_tag 'default.jpg',alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
+      <% end %>
     </div>
     <div class="card-body bg-primary">
-      <p class="card-text"><%=@project.description %></p>
+      <p class="card-text"><%=@project.description %></p><br />
+      <div class="d-flex justify-content-around flex-wrap">
+        <% @project.attachements.each do |attachment|%>
+          <% if attachment.image? %>
+            <%= image_tag attachment, width: "400px", height: "350px", class: "m-2" %>
+          <% elsif attachment.audio? %>
+            <audio controls>
+              <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+            </audio>
+          <% elsif attachment.video? %>
+            <video controls width="480">
+              <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+            </video>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
     <!-- Comments -->
@@ -43,11 +62,11 @@
 
     <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
     <div class="field d-flex flex-column align-items-center justify-content-center">
-      <%= form_for([@project, @feat], class:"bg-primary w-50", :method => "post") do |f| %>
+      <%= form_for([@project, @feat], class:"bg-primary w-100", :method => "post") do |f| %>
       <h3 class="mb-3 fw-normal text-center">Apporte ta participation</h3>
-      <div class="form-floating d-flex flex-column mt-2">
+      <div class="form-card-page form-floating d-flex flex-column mt-2">
         <%= f.text_area :title, placeholder: "Ajoute ton feat"%>
-        <%= submit_tag "Submit", class:'btn btn-primary m-3' %>
+        <%= submit_tag "Submit", class:'btn btn-secondary m-2' %>
       </div>
       <% end %>
     </div>
