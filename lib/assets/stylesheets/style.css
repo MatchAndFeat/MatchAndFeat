@@ -9252,7 +9252,7 @@ fieldset:disabled .btn {
 }
 
 #new_feat{
-  width: 400px;
+  width: 450px;
 }
 
 #text_input_for_project{
@@ -9265,6 +9265,10 @@ fieldset:disabled .btn {
   }
   #new_feat{
     width: 200px;
+  }
+  
+  .form-card-page{
+    align-items: center;
   }
   .one-card-custom{
     flex-direction: column!important;
