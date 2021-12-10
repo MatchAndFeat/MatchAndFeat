@@ -4,12 +4,12 @@
 
   <div class="card col-lg-10 mx-1 my-2 bg-primary border-success">
     <div class="media m-2 d-flex ">
-      <img src="/team/team_lucas.jpg" class="rounded-circle" style="height: 50px;" alt="">
+
       <div class="media-body">
         <%= @project.user.user_name %>
         <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
       </div>
-      <img src="/img/default.jpeg" alt="" class="col-lg-3 m-2" style="height: 200px;">
+      <img src="#" alt="" class="col-lg-3 m-2" style="height: 200px;">
     </div>
     <div class="card-body bg-primary">
       <p class="card-text"><%=@project.description %></p>
@@ -23,10 +23,10 @@
       <% end %>
       <% @project.feats.each do |feat| %>
       <div class="media pb-1 mb-3">
-        <img src="/team/team_flo.jpg" style="height: 50px;" class="rounded-circle" alt="">
+
         <div class="media-body ml-3 border-success">
           <%= feat.user.user_name %>
-          <p class="my-1"><%= feat %></p>
+          <p class="my-1"><%= feat.title %></p>
           <div class="clearfix">
             <a href="javascript:void(0)" class="float-right text-lightest small">
               <span class="ion ion-ios-thumbs-down"></span>

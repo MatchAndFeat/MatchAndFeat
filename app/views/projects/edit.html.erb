@@ -10,10 +10,12 @@
 
 <div class="d-flex flex-wrap justify-content-around align-item-center">
   <% @project.attachements.each do |attachement| %>
+    <% unless attachement.id == nil %>
     <div class="d-flex flex-column align-item-center">
       <%= image_tag attachement, class:"mt-2"%>
       <%= attachement.filename %>
       <%= link_to "Supprimer", attachement_path(attachement), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
     </div>
+    <% end %>
   <% end %>
 </div>

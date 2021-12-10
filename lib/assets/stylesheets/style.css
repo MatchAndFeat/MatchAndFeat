@@ -5720,6 +5720,13 @@ fieldset:disabled .btn {
 .w-75 {
   width: 75% !important;
 }
+.w-80 {
+  width: 80% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
 
 .w-100 {
   width: 100% !important;
@@ -9251,5 +9258,12 @@ fieldset:disabled .btn {
 @media (max-width: 500px){
   #text_input_for_project{
     width: 300px;
+  }
+  .one-card-custom{
+    flex-direction: column!important;
+    align-items: center;
+  }
+  .one-card-custom img{
+    width: 90%;
   }
 }
