@@ -6,12 +6,9 @@ class AttachementsController < ApplicationController
   def destroy
     @attachment = ActiveStorage::Attachment.find(params[:id])
     filename = @attachment.filename
-    if @attachment.purge
-      flash[:info] = "Le fichier #{filename} a bien été supprimé."
-      redirect_back fallback_location: root_path
-    else
-      flash[:warning] = "Il y eu un problème pendant la suppression de #{filename}."
-    end
+    @attachment.purge
+    flash[:info] = "Le fichier #{filename} a bien été supprimé."
+    redirect_back fallback_location: root_path
   end
 
   private
