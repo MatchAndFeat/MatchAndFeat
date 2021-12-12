@@ -1,3 +1,8 @@
+[![forthebadge](https://raw.githubusercontent.com/KevinPiriou/readme-parts/master/Badges/match-&-feat-the-hacking-project.svg)](https://raw.githubusercontent.com/KevinPiriou/readme-parts/master/Badges/match-&-feat-the-hacking-project.svg)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com/images/badges/made-with-ruby.svg)
+[![forthebadge](https://raw.githubusercontent.com/fleopaulD/README-parts/main/Badges/ftb-hosted-on-heroku.svg)](https://raw.githubusercontent.com/fleopaulD/README-parts/main/Badges/ftb-hosted-on-heroku.svg)
+
+
 # Projet finale @THP / _**Match & Feat**_
 
 _Le fameux, le projet final. Pendant deux semaines vous allez apprendre à travailler en équipe et sortir un produit de A à Z. Le projet final durera 2 semaines et sera sanctionné par un jury._
@@ -10,21 +15,21 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 
 . L'utilisateur peut __s'inscrire / se connecter__ : :heavy_check_mark:
 
-. L'utilisateur peut __modifier__ son profil : [x]
+. L'utilisateur peut __modifier__ son profil : :heavy_check_mark:
 
-. L'utilisateur peut __supprimer__ son profil : [x]
+. L'utilisateur peut __supprimer__ son profil : :heavy_check_mark:
 
-. L'utilisateur peut __créer__ un projet : [x]
+. L'utilisateur peut __créer__ un projet : :heavy_check_mark:
 
-. L'utilisateur peut __modifier__ son projet : [x]
+. L'utilisateur peut __modifier__ son projet : :heavy_check_mark:
 
-. L'utilisateur peut __supprimer__ son projet : [x]
+. L'utilisateur peut __supprimer__ son projet : :heavy_check_mark:
 
-. L'utilisateur peut __joindre des fichiers__ à son projet : [x]
+. L'utilisateur peut __joindre des fichiers__ à son projet : :heavy_check_mark:
 
-. L'utilisateur peut __participer__ à un projet : [x]
+. L'utilisateur peut __participer__ à un projet : :heavy_check_mark:
 
-. L'utilisateur peut __faire un don__ au site : [x]
+. L'utilisateur peut __faire un don__ au site : :heavy_check_mark:
 
 
 
