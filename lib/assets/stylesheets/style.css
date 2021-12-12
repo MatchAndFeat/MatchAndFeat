@@ -245,7 +245,7 @@ a {
 }
 
 a:hover {
-    color: var(--bs-success);
+    color: var(--bs-secondary);
 }
 
 a:not([href]):not([class]),
@@ -3038,7 +3038,7 @@ fieldset:disabled .btn {
 
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--bs-success);
+    color: var(--bs-secondary);
 }
 
 .nav-link.disabled {
