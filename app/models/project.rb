@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_many_attached :attachements
   has_one_attached :picture
   belongs_to :user
+  has_many :likes, as: :likeable
 
   validates :title, presence: true, length: { in: 5..150 }
   validates :description, presence: true, length: { in: 5..3000 }
@@ -18,7 +19,7 @@ class Project < ApplicationRecord
                    'video/mpeg',
                    'text/plain']
 
-    private
+  private
 
   def create_project_email_send
     UserMailer.create_project_email(self).deliver_now
