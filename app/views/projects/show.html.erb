@@ -8,33 +8,37 @@
       <div class="media-body">
         <%= @project.user.user_name %>
         <div class="text-muted small"> Crée le : <%= @project.created_at.strftime('%e %b %Y')%></div>
-        <% if @project.user == current_user %>
+          <a href="<%= like_path(likeable: "project") %>" data-method='patch' data-remote='true'>
+          <span id="like_counter"><%= @project.likers.count %></span>
+          <i id="like_status" class="fa<%= current_user_has_liked?(@project) ? "s" : "r" %> fa-heart"></i>
+          </a>
+          <% if @project.user == current_user %>
           <%= link_to "Modifier", edit_project_path(@project.id),class:"link-modify" %>
           <%= link_to "Supprimer", project_path(@project.id), method: :delete, class:"link-delete" %>
-        <% end%>
+          <% end%>
 
       </div>
       <% if @project.picture.attached? %>
-        <%= image_tag @project.picture,alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
+      <%= image_tag @project.picture,alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
       <% else %>
-        <%= image_tag 'default.jpg',alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
+      <%= image_tag 'default.jpg',alt:"#{@project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
       <% end %>
     </div>
     <div class="card-body bg-primary">
       <p class="card-text"><%=@project.description %></p><br />
       <div class="d-flex justify-content-around flex-wrap">
         <% @project.attachements.each do |attachment|%>
-          <% if attachment.image? %>
-            <%= image_tag attachment, width: "400px", height: "350px", class: "m-2" %>
-          <% elsif attachment.audio? %>
-            <audio controls>
-              <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
-            </audio>
-          <% elsif attachment.video? %>
-            <video controls width="480">
-              <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
-            </video>
-          <% end %>
+        <% if attachment.image? %>
+        <%= image_tag attachment, width: "400px", height: "350px", class: "m-2" %>
+        <% elsif attachment.audio? %>
+        <audio controls>
+          <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+        </audio>
+        <% elsif attachment.video? %>
+        <video controls width="480">
+          <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+        </video>
+        <% end %>
         <% end %>
       </div>
     </div>

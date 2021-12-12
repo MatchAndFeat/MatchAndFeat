@@ -3,19 +3,20 @@
 
 <div class="col-12">
   <% @projects.each do |project| %>
-    <div class="col-12 d-flex one-card-custom">
-        <% if project.picture.attached? %>
-          <%= image_tag project.picture,alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
-        <% else %>
-          <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
-        <% end %>
-        <div class="card w-90 col-lg-8 col-md-12 mx-1 my-2 bg-primary border-success">
-            <h5 class="card-header bg-primary border-success"><%= project.title %></h5>
-            <div class="card-body bg-primary">
-                <p class="card-text"><%= project.description %></p>
-                <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
-            </div>
-        </div>
+  <div class="col-12 d-flex one-card-custom">
+    <% if project.picture.attached? %>
+    <%= image_tag project.picture,alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
+    <% else %>
+    <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
+    <% end %>
+    <div class="card w-90 col-lg-8 col-md-12 mx-1 my-2 bg-primary border-success">
+      <h5 class="card-header bg-primary border-success"><%= project.title %></h5>
+      <div class="card-body bg-primary">
+        <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
+        <p class="card-text"><%= project.description %></p>
+        <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
+      </div>
     </div>
+  </div>
   <% end %>
 </div>
