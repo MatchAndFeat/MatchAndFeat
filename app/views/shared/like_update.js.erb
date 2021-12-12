@@ -1,0 +1,9 @@
+like_counter = document.getElementById("like_counter")
+like_status = document.getElementById("like_status")
+
+like_counter.innerHTML = <%= @likes_count %>
+<% if @current_user_like_status === "liked" %>
+like_status.className = "fas fa-heart"
+<% else %>
+like_status.className = "far fa-heart"
+<% end %>

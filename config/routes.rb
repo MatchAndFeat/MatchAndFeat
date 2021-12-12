@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users, :path => "/Mon_Profil"
   resources :projects, :path => "/Projets" do
-    resources :feats, :path => "/Feats"
+    resources :feats, :path => "/Feats" do
+    end
   end
   resources :attachements, only: [:destroy]
-
+  resources :likes, only: [:update]
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
