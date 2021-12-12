@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   has_one_attached :picture
   belongs_to :user
   has_many :likes, as: :likeable
+  has_many :likers, through: :likes, source: :user
 
   validates :title, presence: true, length: { in: 5..150 }
   validates :description, presence: true, length: { in: 5..3000 }

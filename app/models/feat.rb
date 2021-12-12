@@ -5,6 +5,7 @@ class Feat < ApplicationRecord
   belongs_to :user
   has_many_attached :attachements
   has_many :likes, as: :likeable
+  has_many :likers, through: :likes, source: :user
   
   validates :title, presence: true, length: { in: 5..150 }
   validates :attachements, 
