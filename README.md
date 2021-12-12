@@ -8,7 +8,7 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 
 # Version MVP du projet
 
-. L'utilisateur peut __s'inscrire / se connecter__ : [x]
+. L'utilisateur peut __s'inscrire / se connecter__ : :heavy_check_mark:
 
 . L'utilisateur peut __modifier__ son profil : [x]
 
@@ -25,6 +25,8 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 . L'utilisateur peut __participer__ à un projet : [x]
 
 . L'utilisateur peut __faire un don__ au site : [x]
+
+
 
 # Prérequis à l'installation
 
