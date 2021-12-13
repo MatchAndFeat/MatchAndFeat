@@ -1,6 +1,6 @@
 
 <div class="d-flex justify-content-center align-items-center text-center col-12 pt-5">
-  <h1>Mon profil<h1>
+  <h1>Mon profil</h1>
 </div>
 
 
@@ -43,9 +43,12 @@
           </div>
         </div>
         <div class="actions">
-          <%= f.submit "Modifier", class:" btn btn-lg btn-secondary" %>
+          <%= f.submit "Modifier", class:" btn btn-lg btn-secondary text" %>
         </div>
-      <% end %>
+        <div class="actions">
+          <%= link_to "Supprimer",user_registration_path, class:"btn btn-outline-danger active", data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre compte ?" } %>
+        </div>
+        <% end %>
     <%= link_to "Retour à l'accueil", projects_path %>
   </main>
 </div>

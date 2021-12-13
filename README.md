@@ -1,13 +1,42 @@
-# Projet factice pour le cursus THP / **E-PiCat**
+[![forthebadge](https://raw.githubusercontent.com/KevinPiriou/readme-parts/master/Badges/match-&-feat-the-hacking-project.svg)](https://raw.githubusercontent.com/KevinPiriou/readme-parts/master/Badges/match-&-feat-the-hacking-project.svg)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com/images/badges/made-with-ruby.svg)
+[![forthebadge](https://raw.githubusercontent.com/fleopaulD/README-parts/main/Badges/ftb-hosted-on-heroku.svg)](https://raw.githubusercontent.com/fleopaulD/README-parts/main/Badges/ftb-hosted-on-heroku.svg)
+
+
+# Projet finale @THP / _**Match & Feat**_
 
 _Le fameux, le projet final. Pendant deux semaines vous allez apprendre à travailler en équipe et sortir un produit de A à Z. Le projet final durera 2 semaines et sera sanctionné par un jury._
 
 _Le premier vendredi vous rendrez votre première version fonctionnelle du projet (le MVP en quelque sorte), puis le second vendredi vous rendrez la version finale du projet. Tout manquement à ces rendus fera passer toute l'équipe au rang de pirate._
 
 _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de votre succès ou échec au projet final._
-# Prérequis à l'installation
-> Ruby en version 2.7.4
 
+# Version MVP du projet
+
+. L'utilisateur peut __s'inscrire / se connecter__ : :heavy_check_mark:
+
+. L'utilisateur peut __modifier__ son profil : :heavy_check_mark:
+
+. L'utilisateur peut __supprimer__ son profil : :heavy_check_mark:
+
+. L'utilisateur peut __créer__ un projet : :heavy_check_mark:
+
+. L'utilisateur peut __modifier__ son projet : :heavy_check_mark:
+
+. L'utilisateur peut __supprimer__ son projet : :heavy_check_mark:
+
+. L'utilisateur peut __joindre des fichiers__ à son projet : :heavy_check_mark:
+
+. L'utilisateur peut __participer__ à un projet : :heavy_check_mark:
+
+. L'utilisateur peut __faire un don__ au site : :heavy_check_mark:
+
+
+
+# Prérequis à l'installation
+
+> Ruby en version 2.7.4
+***
 > Rails en version 5.2.6
 
 # Lancement de l'application en local
@@ -15,6 +44,8 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
   > 1. ```bundle install```
 
   > 2. ```rails s```
+
+  > 3. ```rails db:create db:migrate db:seed```
 
   2. Accéder au serveur local : http://localhost:3000/
 
@@ -40,5 +71,5 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 
     _@THP/moussaillon_
 
-© Copyright 1912 - 2021 Work&Feat Corp®
+© Copyright 1912 - 2021 Match & Feat Corp®
 

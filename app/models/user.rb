@@ -12,7 +12,8 @@ class User < ApplicationRecord
       
   has_many :projects
   has_many :feats
-
+  has_many :likes
+  
   private
 
   def welcome_send

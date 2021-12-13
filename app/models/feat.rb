@@ -4,6 +4,8 @@ class Feat < ApplicationRecord
   belongs_to :project
   belongs_to :user
   has_many_attached :attachements
+  has_many :likes, as: :likeable
+  has_many :likers, through: :likes, source: :user
   
   validates :title, presence: true, length: { in: 5..150 }
   validates :attachements, 
@@ -13,7 +15,7 @@ class Feat < ApplicationRecord
                     'video/mpeg',
                     'text/plain']
     
-    private
+  private
 
   def create_feat_email_send
     UserMailer.new_feat_email(self).deliver_now

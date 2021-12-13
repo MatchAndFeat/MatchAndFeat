@@ -34,7 +34,7 @@ class FeatsController < ApplicationController
   def update
       if @feat.update_attributes(feat_params)
         flash[:success] = "Votre Feat a bien été édité"
-        redirect_to @feat
+        redirect_to @feat.project
       else
         flash[:warning] = "Il y a eu un problème lors de la modification de votre Feat."
         render 'edit'

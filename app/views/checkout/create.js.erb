@@ -1,0 +1,8 @@
+var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
+var stripe = Stripe('pk_test_51K3ebbH996UelZTglD8BHtUvf5iZnBAFpEaTs4AoWQvXhBryAtbTJqnCvUYYB1IHU78X45X1PextpA4qBQIVQ7x700UCwKcEXE');
+stripe.redirectToCheckout({
+   sessionId: '<%= @session.id %>'
+}).then(function(result){
+   console.log(result.error.message);
+   console.log(result.errors.messages);
+});
