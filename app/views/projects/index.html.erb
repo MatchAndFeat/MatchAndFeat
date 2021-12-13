@@ -88,7 +88,7 @@
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <%= image_tag 'team_jo.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
                     <h5>Joffrey</h5>
-                    <p class=" mb-0">"Un foutu opportuniste qui espère touché le pactole l'hors du rachat par Google ou Meta!"</p>
+                    <p class=" mb-0">"Un foutu opportuniste qui espère touché le pactole lors du rachat par Google ou Meta!"</p>
                 </div>
             </div>
             <div class="col-lg-2 m-2">
@@ -103,53 +103,16 @@
 </section>
 
 
-
-<!-- CONTACT-->
+<!-- EXAMPLE-->
 <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
-<div class="mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-6">
-                <h2>Contact</h2>
-                <p>Vous voulez entrer en contact ? Remplissez le formulaire ci-dessous pour m'envoyer un message et je vous répondrai dans les plus brefs délais !</p>
-                <div class="my-5">
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <div class="form-floating mt-2">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" data-sb-can-submit="no">
-                            <label for="name">Name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <div class="form-floating mt-2">
-                            <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" data-sb-can-submit="no">
-                            <label for="email">Email address</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                        </div>
-                        <div class="form-floating mt-2">
-                            <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" data-sb-can-submit="no">
-                            <label for="phone">Phone Number</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                        </div>
-                        <div class="form-floating mt-2">
-                            <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required" data-sb-can-submit="no"></textarea>
-                            <label for="message">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                        </div>
-                        <br>
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br>
-                                <a href="https://startbootstrap.com/solution/contact-forms"></a>
-                            </div>
-                        </div>
-                        <button class="btn btn-secondary text-uppercase disabled" id="submitButton" type="submit">Envoyer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<h1 class="p-5">BESOIN D'UNE CAPUTRE D'ECRAN AVEC UNE CARTE INDEX AVEC UN TEXTE BIEN FAIRE ET UNE AUTRE CARTE INDEX AVEC UNE BANDE SON </h1>
+
+
+<!-- CALL TO ACTION -->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<div class="d-flex flex-column align-items-center">
+  <h3><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %></h3>
+  <p>N'attendez plus et rejoignez la communauté !!</p>
 </div>
 
 <% end %>
