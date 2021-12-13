@@ -9559,6 +9559,17 @@ fieldset:disabled .btn {
 .link-modify:hover {
     color: var(--bs-purple)!important;
 }
+
+#project{
+    background: var(--bs-primary);
+    color: white;
+    border: none;
+}
+#project:hover{
+    background: var(--bs-primary);
+    color: var(--bs-success);
+}
+
 @media (max-width: 1000px){
     .showcase-img{
         width: 100%;
