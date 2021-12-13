@@ -9559,6 +9559,14 @@ fieldset:disabled .btn {
 .link-modify:hover {
     color: var(--bs-purple)!important;
 }
+@media (max-width: 1000px){
+    .showcase-img{
+        width: 100%;
+    }
+    .img_for_presente{
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 500px) {
     #text_input_for_project {
