@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_create :welcome_send
   after_create :username_attribution
+  after_commit :add_default_avatar, on: %i[create update]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -14,7 +15,16 @@ class User < ApplicationRecord
   has_many :feats
   has_many :likes
   has_and_belongs_to_many :skills
+  has_one_attached :avatar
   
+  def avatar_thumbnail
+    if avatar.attached?
+    avatar  
+    else  
+      "/micro.png"
+    end
+  end
+
   private
 
   def welcome_send
@@ -23,5 +33,19 @@ class User < ApplicationRecord
   
   def username_attribution
     self.update(user_name: "Pseudo#{self.id }")
+  end
+
+  def add_default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'micro.png' 
+          )
+        ), 
+        filename: 'micro.png',
+        content_type: 'image/png'
+      )
+    end
   end
 end
