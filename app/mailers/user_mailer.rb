@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
   def create_project_email(project)
     @project = project
     @url = 'https://matchandfeathp.herokuapp.com/login'
-    mail(to: @project.user.email, subject: 'Création du projet terminer')
+    mail(to: @project.user.email, subject: 'Création du projet')
   end
 
   def new_feat_email(feat)
