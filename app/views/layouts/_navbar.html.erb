@@ -12,6 +12,8 @@
         <% if user_signed_in? %>
         <%= link_to "Démarrer une collab", new_project_path, class: "nav-link" %>
         <div class="dropdown-divider"></div>
+        <%= link_to "about", static_pages_about_path, class: "nav-link" %>
+        <div class="dropdown-divider"></div>
         <%= link_to "Modifier mon profil", edit_user_registration_path, class: "nav-link "%>
         <div class="dropdown-divider"></div>
         <%= link_to "Se déconnecter", destroy_user_session_path ,method: "delete", class: "nav-link "%>
