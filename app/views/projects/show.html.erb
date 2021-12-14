@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container my-4">
   <div class="card bg-primary border-success">
     
     <a id="star_icon_project" href="<%= like_path(likeable: "project") %>" data-method='patch' data-remote='true' class="btn btn-<%= current_user_has_liked?(@project) ? "warning" : "primary" %> primary position-absolute top-0 start-0 fs-2">
