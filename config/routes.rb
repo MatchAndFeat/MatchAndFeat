@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
   root 'projects#index'
+  get '/about', to: 'static_pages#about', as: "a_propos"
   devise_for :users, :path => "/Mon_Profil"
   resources :projects, :path => "/Projets" do
     resources :feats, :path => "/Feats" do
