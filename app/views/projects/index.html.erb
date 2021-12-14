@@ -3,11 +3,11 @@
 <% if user_signed_in? %>
 
 <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
-<div class="d-flex justify-content-end align-items-center">
-    <%= form_with project: @projects, class:"btn btn-primary mx-5" do |form|%>
-      <%= form.select :project, ["Created_at", "Likes", "Feats"], { :class => "bg-primary" } %>
-    <% end %>
-</div>
+  <div class="d-flex justify-content-end align-items-center">
+      <%= form_with project: @projects, class:"btn btn-primary mx-5" do |form|%>
+        <%= form.select :project, [["Plus récent", "recently"], ["Le plus de feats", ""], ["Le plus de likes", ""]], { :class => "bg-primary" } %>
+      <% end %>
+  </div>
 <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
 
 
