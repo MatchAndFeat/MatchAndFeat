@@ -9569,6 +9569,9 @@ fieldset:disabled .btn {
     background: var(--bs-primary);
     color: var(--bs-success);
 }
+#form_contact_custom{
+    width: 70vh;
+}
 
 @media (max-width: 1000px){
     .showcase-img{
@@ -9586,6 +9589,9 @@ fieldset:disabled .btn {
     }
     .one-card-custom img {
         width: 90%;
+    }
+    #form_contac_custom{
+        width: 400px;
     }
 }
 
@@ -9605,5 +9611,8 @@ fieldset:disabled .btn {
     }
     .one-card-custom img {
         width: 90%;
+    }
+    #form_contac_custom{
+        width: 300px;
     }
 }
