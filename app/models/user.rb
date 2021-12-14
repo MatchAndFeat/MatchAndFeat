@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :feats
   has_many :likes
+  has_and_belongs_to_many :skills
   has_one_attached :avatar
   
   def avatar_thumbnail
