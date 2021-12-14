@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :likes, as: :likeable
   has_many :likers, through: :likes, source: :user
+  has_many :join_table_tags_projects
+  has_many :tags, through: :join_table_tags_projects
 
   validates :title, presence: true, length: { in: 5..150 }
   validates :description, presence: true, length: { in: 5..3000 }
