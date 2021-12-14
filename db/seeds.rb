@@ -37,20 +37,9 @@ end
 end
 
 10.times do
-    Tag.create!(
+    Skill.create!(
         name: Faker::Job.key_skill,
-        project: Project.all.sample
+        project: Project.all.sample,
+        user: User.all.sample
     )
-end
-
-tags_array = Tag.all
-
-Project.all.each do |each_project|
-    random_tag_number = rand(1..5)
-    random_tag_number.times do
-        JoinTableTagsProject.create(
-            project: each_project,
-            tag: tags_array[rand(0...tags_array.length)]
-        )
-    end
 end
