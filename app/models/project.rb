@@ -17,7 +17,7 @@ class Project < ApplicationRecord
     size: { less_than: 20.megabytes },
     content_type: ['image/png', 'image/jpg', 'image/jpeg',
                    'audio/x-wav', 'audio/mpeg',
-                   'video/mpeg',
+                   'video/mp4',
                    'text/plain']
 
   private
