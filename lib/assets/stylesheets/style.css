@@ -9574,6 +9574,13 @@ fieldset:disabled .btn {
 }
 
 @media (max-width: 1000px){
+    .one-card-custom {
+        flex-direction: column!important;
+        align-items: center;
+    }
+    .one-card-custom img {
+        width: 75%;
+    }
     .showcase-img{
         width: 100%;
     }
@@ -9583,13 +9590,6 @@ fieldset:disabled .btn {
 }
 
 @media (max-width: 750px) {
-    .one-card-custom {
-        flex-direction: column!important;
-        align-items: center;
-    }
-    .one-card-custom img {
-        width: 90%;
-    }
     #form_contac_custom{
         width: 400px;
     }
