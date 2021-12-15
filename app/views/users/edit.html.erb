@@ -1,34 +1,44 @@
-<div class="d-flex justify-content-center align-items-center text-center col-12">
-  <main class="form-signin">
-    <h2> <%= current_user.user_name %> </h2>
+<div class="d-flex justify-content-center align-items-center text-center">
+  <main class="col-lg-6">
+    <h2><%= current_user.user_name %></h2>
     <%= form_with(model: @user, local: true, html: {class: "w-100"}) do |f| %> 
     <% if @user.avatar.attached? %>
     <div class= "field">
-        <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
+      <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
     </div>
     <% end %>
-    <div class= "field">
-        <%= f.label :Avatar %><br />
+
+    <div class= "field my-3">
+        <%= f.label "Changez votre avatar" %><br />
         <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar"  %>
     </div>
-    <div class="field">
-        <%= f.label :Pseudo %><br />
+
+    <div class="field my-3">
+        <%= f.label "Votre pseudo" %><br />
         <%= f.text_field  :user_name, autofocus: true, autocomplete: "pseudo" %>
     </div>       
-    <div class="field">
-        <%= f.label :réseau_social %><br />
+
+    <div class="field my-3">
+        <%= f.label "Lien réseau social" %><br />
         <%= f.text_field :social_link, autofocus: true, autocomplete: "social_link" %>
-    </div>     
-    <div class="actions">
-         <%= f.submit "Modifier", class:" btn  btn-outline-secondary m-2" %> 
-         <% if @user.avatar.attached? %>
-         <%= link_to "Supprimer Avatar", user_path, data: { method: :delete}, class: "btn btn-outline-danger m-2" %>  
-         <% end %>     
-         <%= link_to "Accueil", projects_path, class:" btn  btn-outline-info m-2"  %>
+    </div>
+
+    <div class="my-3 text-center" >
+      <%= f.label "Vos points forts" %><br />
+      <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>
+      <%= b.label(:"data-value" => b.value, class: "m-1") { b.check_box + " " + b.text } %>
+      <% end %>
+    </div>
+
+    <div class="actions m-2">
+      <%= f.submit "Valider les modifications", class:" btn  btn-outline-secondary m-2" %> 
+      <% if @user.avatar.attached? %>
+      <%= link_to "Supprimer l'avatar", user_path, data: { method: :delete}, class: "btn btn-outline-danger m-2" %>  
+      <% end %>     
+      <%= link_to "Retour à l'accueil", projects_path, class:" btn  btn-outline-info m-2"  %>
     </div> 
     <% end %>
-    <div class="form-floating">
-    </div>
-    <p><%= link_to 'Modifier mes identifiants de connexion', edit_user_registration_path(@user) %></p>   
+    <p><i class="fas fa-exclamation-triangle"></i> <%= link_to 'Modifier mes identifiants de connexion', edit_user_registration_path, class: "link-delete fs-6" %></p>   
   </main>
 </div>
+
