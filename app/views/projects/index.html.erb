@@ -27,7 +27,13 @@
                 <p class="text-truncate card-text"><%= project.description %></p>  
 
                 <div class="d-flex justify-content-between">
-                    <p><em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <% if project.feats.count < 1 %>
+                    <p><em>Pas de feats sur ce projet</em></p>
+                    <% elsif project.feats.count == 1 %>
+                    <p><em>1 feat sur ce projet</em></p>
+                    <% else %>
+                    <em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <% end %>
                     <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
                     <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
                 </div>
