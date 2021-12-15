@@ -4,10 +4,11 @@
   </head>
   <body>
     <p>
-      Votre projet <%= @project.user %> à bien était créé.
+      Ton projet : " <%= Project.last.title %> " à bien était créé.
     </p>
     <p>
       Pour accéder à ton projet, connecte-toi via : <%= @url %>.
     </p>
+    <p> À très vite sur Match & Feat !</p>
   </body>
 </html>
