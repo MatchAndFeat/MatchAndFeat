@@ -4,14 +4,6 @@
     <i class="fas fa-sign-in-alt" style="font-size:40px"></i>
     <h1 class="h3 mb-3 fw-normal">Inscription à Match&Feat</h1>
 
-    <div class= "field">
-       <% if resource.avatar.attached? %>
-       <%= image_tag(resource.avatar,class:"rounded-circle")%>
-       <% else %>
-       <%= image_tag('/micro.png')%>
-       <%end %>
-    </div>
-
     <div class="form-floating mt-2">
       <div class="field mb-2">
         <%= f.label :email %><br />
