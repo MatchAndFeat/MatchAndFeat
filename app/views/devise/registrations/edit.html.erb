@@ -1,55 +1,53 @@
-
+<div class="container">
+  <div class="avatar-big m-auto text-center">
+    <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
+    <% else %>  
+    <%= image_tag 'default_avatar.png', class: "rounded-circle" %>
+    <% end %>
+  </div>
+</div>
 <div class="d-flex justify-content-center align-items-center text-center col-12">
   <main class="form-signin">
-    <h2> <%= current_user.user_name %> <% resource_name.to_s.humanize %></h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="form-floating">
-          <div class="field">
-            <%= f.label :Pseudo %><br />
-            <%= f.text_field  :user_name, autofocus: true, autocomplete: "pseudo" %>
-          </div>
-        </div>
-
-        <div class="form-floating">
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-        </div>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
-        <% end %>
-        <div class="form-floating">
-          <div class="field">
-            <%= f.label :password %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> caractères minimum </em>
-            <% end %>
-          </div>
-        </div>
-        <div class="form-floating">
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-        </div>
-        <div class="form-floating">
-          <div class="field">
-            <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-        </div>
-        <div class="actions">
-          <%= f.submit "Modifier", class:" btn  btn-outline-secondary m-2" %>
-                  <%= link_to "Supprimer",user_registration_path, class:"btn btn-outline-danger m-2", data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre compte ?" } %>
-                  <%= link_to "Accueil", projects_path, class:" btn  btn-outline-info m-2"  %>
-        </div>
-        
-        <% end %>
-    
+    <h2><% resource_name.to_s.humanize %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-floating">
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="form-floating">
+      <div class="field">
+      <%= f.label :password %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> caractères minimum </em>
+      <% end %>
+      </div>
+    </div>
+    <div class="form-floating">
+      <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+    <div class="form-floating">
+      <div class="field">
+      <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+    </div>
+    <div class="actions">
+    <%= f.submit "Modifier", class:" btn  btn-outline-secondary m-2" %>
+    <%= link_to "Supprimer",user_registration_path, class:"btn btn-outline-danger m-2", data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre compte ?" } %>
+    <%= link_to "Accueil", projects_path, class:" btn  btn-outline-info m-2"  %>
+    </div>        
+    <% end %>    
   </main>
 </div>

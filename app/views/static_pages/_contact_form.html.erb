@@ -1,0 +1,75 @@
+<div class="col-md-6" id="flash-message">
+  <%= render 'flash' %>
+</div>
+
+<%= form_for @contact, url: static_pages_path, remote: true do |f| %>
+<section class="mb-4">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Nous contacter</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5"> Remplissez le formulaire ci-dessous pour nous envoyer un message et nous vous répondrons dans les plus brefs délais !</p>
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" method="POST">
+                <!--Grid row-->
+                <div class="row m-2">
+                    <!--Grid column-->
+                    <div class="col-md-4">
+                        <div class="md-form mb-0">
+                            <%= f.label :Pseudo %></br></br>
+                            <%= f.text_field  :name, required: true, class: "contact-form-text-area" %></br>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-4">
+                        <div class="md-form mb-0">
+                            <%= f.label :Email %></br></br>
+                            <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+                <div class="row m-2">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+                        <div class="md-form">
+                          <%= f.label :Message %></br>
+                          <%= f.text_area :message, rows: 3, cols: 80, required: true, class: "contact-form-text-area" %></br></br>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p> Limoge, EU 37520, FRA</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p> 02 47 47 47 47</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p> admin.matchandfeat@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+    <%= f.submit 'Envoyer votre message', class: 'btn btn-outline-warning' %>
+    </div>
+</div>
+<% end %>
+</section>

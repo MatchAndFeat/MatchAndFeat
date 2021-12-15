@@ -6,6 +6,7 @@ gem 'devise'
 gem 'faker'
 gem 'stripe'
 gem 'table_print'
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 # Simple validations for Active Storage
 gem 'active_storage_validations'
