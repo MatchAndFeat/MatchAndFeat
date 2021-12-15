@@ -1,18 +1,19 @@
-class HomeController < ApplicationController
+class StaticPagesController < ApplicationController
+  
   def about
   end
 
   def index
-    @contact = Home.new(params[:home])
+    @contact = StaticPage.new(params[:static_page])
   end
 
   def create
-    @contact = Home.new(params[:home])
+    @contact = StaticPage.new(params[:static_page])
     @contact.request = request
     respond_to do |format|
       if @contact.deliver
         # re-initialize Home object for cleared form
-        @contact = Home.new
+        @contact = StaticPage.new
         format.html { render 'index'}
         format.js   { flash.now[:success] = @message = "Merci pour votre message, nous vous contactons dans les plus bref délais !" }
       else

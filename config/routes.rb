@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'projects#index'
   
-  resources :home, :path => "/a_propos", only: [:index, :new, :create]
+  resources :static_pages, :path => "/a_propos", only: [:index, :new, :create]
 
   devise_for :users, :path => "/Mon_Profil"
 
