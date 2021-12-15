@@ -2,10 +2,10 @@
   <div class="card bg-primary border-success">
     <div class="card-body">
       <h2 class="text-center m-4">Information de profil</h2>
-      <div class="avatar-big m-auto">
+      <div class="avatar-big m-auto avat-center">
       <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
-      <% else %>  
+      <% else %>
       <%= image_tag 'default_avatar.png', class: "rounded-circle" %>
       <% end %>
       </div><br><hr><br>
@@ -18,11 +18,11 @@
             <tr>
                 <th scope="row", class="text-light">Date:</th>
                 <td class="text-secondary"><%= @user.created_at.strftime('Compte crée le :%e %b %Y') %></td>
-            </tr> 
-             <% if @user.social_link? %> 
+            </tr>
+             <% if @user.social_link? %>
             <tr>
-                <th scope="row", class="text-light">Réseau social :</th> 
-                <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link %></td>       
+                <th scope="row", class="text-light">Réseau social :</th>
+                <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link, target: :_blank %></td>
             </tr>
              <% end %>
             <tr>
