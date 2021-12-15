@@ -66,47 +66,7 @@
     </section>
 
     <!-- CONTACT-->
-    <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
-    <div class="d-flex justify-content-center">
-        <div id="form_contact_custom">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-6">
-                    <h2>Contact</h2>
-                    <p>Vous voulez entrer en contact ? Remplissez le formulaire ci-dessous pour m'envoyer un message et je vous répondrai dans les plus brefs délais !</p>
-                    <div class="my-5">
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <div class="form-floating mt-2">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" data-sb-can-submit="no">
-                                <label for="name">Name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <div class="form-floating mt-2">
-                                <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" data-sb-can-submit="no">
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-floating mt-2">
-                                <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required" data-sb-can-submit="no"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <br>
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br>
-                                    <a href="https://startbootstrap.com/solution/contact-forms"></a>
-                                </div>
-                            </div>
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <button class="btn btn-secondary text-uppercase disabled" id="submitButton" type="submit">Send</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+     <div id="contact">
+    <%= render 'contact_form' %>
+  </div>
 
