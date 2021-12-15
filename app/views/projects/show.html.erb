@@ -63,8 +63,8 @@
     <div class="field d-flex flex-column align-items-center justify-content-center">
       <%= form_for([@project, @feat], class:"bg-primary w-100", :method => "post") do |f| %>
       <div class="form-card-page form-floating d-flex flex-column mt-2">
-        <%= f.text_area :title, placeholder: "Apporte ta contribution :)"%>
-        
+        <%= f.text_area :title, placeholder: "Titre "%>
+        <%= f.text_area :description, placeholder: "Apporte ta contribution ", class:'my-2', required: true %><br />
         <%= f.file_field :attachements, multiple: true, class: "my-3" %>
         <%= submit_tag "Je contribue", class:'btn btn-secondary m-2' %>
       </div>
@@ -84,7 +84,7 @@
         <% end%>
       </div>
       <div class="card-body">
-        <p class="card-text">Peut-être qu'il faudrait rajouter la possibilité au feater de mettre une description ?</p>
+        <p class="card-text"><%= feat.description %></p>
         <a href="<%= like_path(likeable: "feat", id: feat) %>" data-method='patch' data-remote='true' class="btn btn-primary">
           <span id="like_counter_feat_<%= feat.id %>"><%= feat.likers.count %></span>
           <i id="like_icon_feat_<%= feat.id %>" class="fa<%= current_user_has_liked?(feat) ? "s" : "r" %> fa-heart"></i>
