@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_092233) do
+ActiveRecord::Schema.define(version: 2021_12_15_160325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_092233) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["project_id"], name: "index_feats_on_project_id"
     t.index ["user_id"], name: "index_feats_on_user_id"
   end
@@ -63,6 +64,24 @@ ActiveRecord::Schema.define(version: 2021_12_12_092233) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "projects_skills", id: false, force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "skill_id", null: false
+    t.index ["project_id"], name: "index_projects_skills_on_project_id"
+    t.index ["skill_id"], name: "index_projects_skills_on_skill_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "skills_users", id: false, force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["skill_id"], name: "index_skills_users_on_skill_id"
+    t.index ["user_id"], name: "index_skills_users_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_092233) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "social_link"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

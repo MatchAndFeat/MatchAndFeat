@@ -2,7 +2,9 @@
 <%= render "shared/error_messages", object: @project %>
 <% end %>
 
-<div class="d-flex flex-column justify-content-center align-items-center text-center col-12">  
-  <h1>Créer ton projet</h1>
-  <%= render 'form', project: @project %>
+<div class="d-flex flex-column justify-content-center align-items-center text-center">  
+  <div class="col-lg-6">
+    <h1>Créer un nouveau projet</h1>
+    <%= render 'form', project: @project %>
+  </div>
 </div>

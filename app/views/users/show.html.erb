@@ -1,0 +1,47 @@
+<div class="container my-4">
+  <div class="card bg-primary border-success">
+    <div class="card-body">
+      <h2 class="text-center m-4">Information de profil</h2>
+      <div class="avatar-big m-auto avat-center">
+      <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
+      <% else %>
+      <%= image_tag 'default_avatar.png', class: "rounded-circle" %>
+      <% end %>
+      </div><br><hr><br>
+      <table class="table table-borderless max-width-18 m-auto m-4">
+        <tbody>
+            <tr>
+                <th scope="row", class="text-light">Pseudo:</th>
+                <td class="text-secondary"><%=@user.user_name%></td>
+            </tr>
+            <tr>
+                <th scope="row", class="text-light">Date:</th>
+                <td class="text-secondary"><%= @user.created_at.strftime('Compte crée le :%e %b %Y') %></td>
+            </tr>
+             <% if @user.social_link? %>
+            <tr>
+                <th scope="row", class="text-light">Réseau social :</th>
+                <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link, target: :_blank %></td>
+            </tr>
+             <% end %>
+            <tr>
+                <th scope="col", class="text-light"> Projects:</th>
+                <td class="text-secondary"><% @user.projects.each do |project| %>
+                <%= link_to project.title, project_path(project) %>
+                <% end %></td>
+            </tr>
+            <tr>
+                <th scope="col", class="text-light"> Feats:</th>
+                <td class="text-secondary"><% @user.feats.each do |feat| %>
+                <%= link_to feat.title, project_path(feat.project) %>
+                <% end %></td>
+            </tr>
+        </tbody>
+      </table><br><hr>
+      <div class="actions text-center m-4">
+      <%= link_to 'Modifier mon profil', edit_user_path,class:" btn  btn-outline-secondary m-2" %>
+      </div>
+    </div>
+  </div>
+</div>

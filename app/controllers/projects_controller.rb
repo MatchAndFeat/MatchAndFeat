@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all.order(id: :desc)
+
   end
 
   def show
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :picture, attachements: [])
+    params.require(:project).permit(:title, :description, :picture, attachements: [], skill_ids: [])
   end
 
   def set_project

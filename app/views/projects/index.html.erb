@@ -1,22 +1,174 @@
-<%= render "layouts/banner"%>
+<%= render "layouts/carousel"%>
 
+<% if user_signed_in? %>
 
-<div class="col-12">
-  <% @projects.each do |project| %>
-  <div class="col-12 d-flex one-card-custom">
-    <% if project.picture.attached? %>
-    <%= image_tag project.picture,alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
-    <% else %>
-    <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
-    <% end %>
-    <div class="card w-90 col-lg-8 col-md-12 mx-1 my-2 bg-primary border-success">
-      <h5 class="card-header bg-primary border-success"><%= project.title %></h5>
-      <div class="card-body bg-primary">
-        <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
-        <p class="card-text"><%= project.description %></p>
-        <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
-      </div>
-    </div>
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+  <div class="d-flex justify-content-end align-items-center">
+      <%= form_with project: @projects, class:"btn btn-primary mx-5" do |form|%>
+        <%= form.select :project, [["Plus récent", "recently"], ["Le plus de feats", ""], ["Le plus de likes", ""]], { :class => "bg-primary" } %>
+      <% end %>
   </div>
-  <% end %>
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+
+<div class="container">
+    <% @projects.each do |project| %>
+    <div class="col-12 d-flex one-card-custom">
+        <% if project.picture.attached? %>
+        <%= image_tag project.picture,alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
+        <% else %>
+        <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
+        <% end %>
+        <div class="card w-75 mx-1 my-2 bg-primary border-success">
+            <div class="card-header bg-primary border-success d-flex justify-content-between align-items-center">
+                <h5><%= project.title %></h5>
+                <p class="text-muted"><em>Publié le <%= project.created_at.strftime('%e %b %Y')%></em></p>
+            </div>
+            <div class="card-body bg-primary d-flex flex-column justify-content-around">
+                <p class="text-truncate card-text"><%= project.description %></p>  
+
+                <div class="d-flex justify-content-between">
+                    <p><em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
+                    <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
 </div>
+    <% else %>
+
+<!-- Presentation -->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="d-flex img_for_presente">
+            <%= image_tag 'instruments.png',alt:"", class:"col-lg-6 order-lg-2 text-white showcase-img", width: "50%"%>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Une communauté en Or</h2>
+                <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+            </div>
+        </div>
+        <div class="d-flex img_for_presente">
+            <%= image_tag 'micro.png',alt:"", class:"col-lg-6 text-white showcase-img", width: "50%"%>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>De nombreux talents en tous genres sont disponibles pour collaborer </h2>
+                <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+            </div>
+        </div>
+        <div class="d-flex img_for_presente">
+            <%= image_tag 'neon.png',alt:"", class:"col-lg-6 order-lg-2 text-white showcase-img", width: "50%"%>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>De nombreux projets captivants ou vous pouvez apporter votre aide et démontrent votre talent </h2>
+                <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<div class="d-flex flex-column align-items-center">
+  <h3><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %></h3>
+  <p>N'attendez plus et rejoignez la communauté !!</p>
+</div>
+
+<!-- TEAM -->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<section class="testimonials text-center">
+    <div class="container">
+        <h2 class="mb-5">Qui ce cache derrière</h2>
+        <div class="d-flex justify-content-center flex-wrap">
+            <div class="col-lg-2 m-2">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <%= image_tag 'team_flo.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
+                    <h5>Flo</h5>
+                    <p class=" mb-0">"Il est le fils spirituel de Gary McKinnon !"</p>
+                </div>
+            </div>
+            <div class="col-lg-2 m-2">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <%= image_tag 'team_hary.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
+                    <h5>Hary</h5>
+                    <p class=" mb-0">"Le cerveau de l'ombre à l'origine du projet."</p>
+                </div>
+            </div>
+            <div class="col-lg-2 m-2">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <%= image_tag 'team_kevin.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
+                    <h5>Kevin</h5>
+                    <p class=" mb-0">"Thanks so much for making these free resources available to us!"</p>
+                </div>
+            </div>
+            <div class="col-lg-2 m-2">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <%= image_tag 'team_jo.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
+                    <h5>Joffrey</h5>
+                    <p class=" mb-0">"Un foutu opportuniste qui espère touché le pactole lors du rachat par Google ou Meta!"</p>
+                </div>
+            </div>
+            <div class="col-lg-2 m-2">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <%= image_tag 'team_lucas.jpg',alt:"", class:"img-fluid rounded-circle mb-3" %>
+                    <h5>Lucas</h5>
+                    <p class=" mb-0">"Thanks so much for making these free resources available to us!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT-->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<div class="d-flex justify-content-center">
+    <div id="form_contact_custom">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-6">
+                <h2>Contact</h2>
+                <p>Vous voulez entrer en contact ? Remplissez le formulaire ci-dessous pour m'envoyer un message et je vous répondrai dans les plus brefs délais !</p>
+                <div class="my-5">
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <div class="form-floating mt-2">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" data-sb-can-submit="no">
+                            <label for="name">Name</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-floating mt-2">
+                            <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" data-sb-can-submit="no">
+                            <label for="email">Email address</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <div class="form-floating mt-2">
+                            <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required" data-sb-can-submit="no"></textarea>
+                            <label for="message">Message</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+                        <br>
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                To activate this form, sign up at
+                                <br>
+                                <a href="https://startbootstrap.com/solution/contact-forms"></a>
+                            </div>
+                        </div>
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <button class="btn btn-secondary text-uppercase disabled" id="submitButton" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CALL TO ACTION -->
+<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
+<div class="d-flex flex-column align-items-center">
+  <h3><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %></h3>
+  <p>N'attendez plus et rejoignez la communauté !!</p>
+</div>
+
+<% end %>
