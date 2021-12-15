@@ -3,10 +3,10 @@
   <div class="card bg-primary border-success">
     <div class="card-body">
     <h2 class="text-center m-4">Information de profil</h2>
-      <div class="avatar-big m-auto">
+      <div class="avatar-big m-auto text-center">
     <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
-    <% else %>  
+    <% else %>
     <%= image_tag 'default_avatar.png', class: "rounded-circle" %>
     <% end %>
   <ul>
@@ -31,15 +31,15 @@
       </tr>
       <tr>
         <th scope="col", class="text-light"> Projects:</th>
-        <td class="text-secondary"><% @user.projects.each do |project| %>
-        <%= link_to project.title, project_path(project) %>
-        <% end %></td>
+        <ul><td class="text-secondary"><% @user.projects.each do |project| %></ul>
+          <li><%= link_to project.title, project_path(project) %>
+          <% end %></td></li>
       </tr>
       <tr>
         <th scope="col", class="text-light"> Feats:</th>
-        <td class="text-secondary"><% @user.feats.each do |feat| %>
-        <%= link_to feat.title, project_path(feat.project) %>
-        <% end %></td>
+        <ul><td class="text-secondary"><% @user.feats.each do |feat| %></ul>
+          <li><%= link_to feat.title, project_path(feat.project) %>
+          <% end %></td></li>
       </tr>
     </tbody>
   </table><br><hr>
