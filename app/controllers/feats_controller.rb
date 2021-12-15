@@ -9,7 +9,7 @@ class FeatsController < ApplicationController
 
   def show
   end
-  
+
   def new
     @feat = Feat.new
   end
@@ -40,7 +40,7 @@ class FeatsController < ApplicationController
         render 'edit'
       end
   end
-  
+
   def destroy
     if @feat.destroy
       flash[:success] = 'Votre Feat a bien été supprimé.'
@@ -54,7 +54,7 @@ class FeatsController < ApplicationController
   private
 
   def feat_params
-    params.require(:feat).permit(:title, attachements: [])
+    params.require(:feat).permit(:title, :description, attachements: [])
   end
 
   def set_feat
