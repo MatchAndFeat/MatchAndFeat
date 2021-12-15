@@ -22,7 +22,7 @@
         <h5 class="card-header bg-primary border-success"><%= project.title %></h5>
         <div class="card-body bg-primary">
             <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
-            <p class="card-text"><%= project.description %></p>
+            <p class="text-truncate card-text"><%= project.description %></p>
             <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
         </div>
         </div>
