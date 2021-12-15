@@ -47,11 +47,28 @@ end
 puts "#{Project.count} projects have been created."
 
 10.times do
-  Feat.create(
+  feat = Feat.create(
     title: Faker::Company.name, 
     project: Project.all.sample, 
     user: User.all.sample
     )
+  rand(1..6).times do
+    rand_filename = "#{rand(1..16)}.png"
+    feat.attachements.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
+  end
 end
 
 puts "#{Feat.count} feats have been created."
+
+30.times do
+  Like.create(
+    user: User.all.sample,
+    likeable: Project.all.sample
+  )
+  Like.create(
+    user: User.all.sample,
+    likeable: Feat.all.sample
+  )
+end
+
+puts "#{Like.count} likes have been created"
