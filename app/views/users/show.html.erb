@@ -18,11 +18,13 @@
             <tr>
                 <th scope="row", class="text-light">Date:</th>
                 <td class="text-secondary"><%= @user.created_at.strftime('Compte crée le :%e %b %Y') %></td>
-            </tr>
+            </tr> 
+             <% if @user.social_link? %> 
             <tr>
-                <th scope="row", class="text-light">Réseau social :</th>
-                <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link %></td>
+                <th scope="row", class="text-light">Réseau social :</th> 
+                <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link %></td>       
             </tr>
+             <% end %>
             <tr>
                 <th scope="col", class="text-light"> Projects:</th>
                 <td class="text-secondary"><% @user.projects.each do |project| %>
