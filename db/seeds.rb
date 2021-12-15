@@ -15,8 +15,7 @@ puts "#{Skill.count} skills have been created."
   user = User.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    social_link_1: Faker::Internet.url,
-    social_link_2: Faker::Internet.url
+    social_link: Faker::Internet.url
   )
   rand(0..4).times do
     user.skills << Skill.all.sample
