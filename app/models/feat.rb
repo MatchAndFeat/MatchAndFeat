@@ -1,10 +1,11 @@
 class Feat < ApplicationRecord
   after_create :create_feat_email_send
-  
+  before_destroy :purge_all_attachments
+
   belongs_to :project
   belongs_to :user
   has_many_attached :attachements
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
   has_many :likers, through: :likes, source: :user
   
   validates :title, presence: true, length: { in: 5..150 }
