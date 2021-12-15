@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'projects#index'
   get '/about', to: 'static_pages#about', as: "a_propos"
   devise_for :users, :path => "/Mon_Profil"
+  resources :users
   resources :projects, :path => "/Projets" do
     resources :feats, :path => "/Feats" do
     end
