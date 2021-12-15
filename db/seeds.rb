@@ -10,7 +10,7 @@
 User.destroy_all
 Project.destroy_all
 Feat.destroy_all
-Tag.destroy_all
+Skill.destroy_all
 
 1.times do
     User.create!(
