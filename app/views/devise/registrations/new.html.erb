@@ -1,34 +1,37 @@
-<div class="d-flex justify-content-center align-items-center text-center col-12" style="height:70vh;">   
+<div class="d-flex justify-content-center align-items-center text-center col-12">
   <main class="form-signin">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <i class="fas fa-sign-in-alt" style="font-size:40px"></i>
-    <h1 class="h3 mb-3 fw-normal">Inscription à Match&Feat</h1>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <i class="fas fa-microphone-alt" style="font-size:60px"></i>
+    <br>
+    <h1 class="h3 mb-3 fw-normal">Inscription</h1>
 
-    <div class="form-floating mt-2">
-      <div class="field mb-2">
+    <div class="form-floating mt-3">
+      <div class="field mb-1">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     </div>
-    <div class="form-floating mt-2">
-      <div class="field mb-2">
+    <div class="form-floating mt-3">
+      <div class="field mb-1">
         <%= f.label :Mot_de_passe %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> caractères minimum)</em>
-        <% end %><br />
+        <% end %>
+        <br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
     </div>
-    <div class="form-floating mt-2">
-      <div class="field mb-2">
+    <div class="form-floating mt-3">
+      <div class="field mb-1">
         <%= f.label :confirmation_du_mot_de_passe %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </div>
-    <div class="actions m-2">
+    <div class="actions m-3">
       <%= f.submit "S'inscrire", class:"btn btn-outline-secondary" %>
     </div>
     <% end %>
-    <%= button_to "Se connecter", new_user_session_path, class: "btn btn-outline-info" %>
+    <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-info" %>
   </main>
 </div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Console Administrateur</h1>
+    <h3>Ravi de vous revoir <%= current_user.user_name %> !</h3>
+</br>
+</br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h1 class="card-title"><%= User.count %></h1>
+          <p class="card-text">Utilisateurs inscrits</p>
+          <%= link_to 'Gestion utilisateurs', admin_users_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h1 class="card-title"><%= Project.count %></h1>
+          <p class="card-text">Projets en cours</p>
+          <%= link_to 'Gestion des projets', admin_projects_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Outils et statistiques</h2>
+          <%= link_to "Ajout/retrait de compétences", admin_skills_path, class: "btn btn-primary btn-sm" %>
+          <p class="card-text mt-2"><%= ActiveStorage::Attachment.count %> fichiers déposés</p>
+          <p class="card-text"><%= Like.count %> likes posés</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

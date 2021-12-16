@@ -8,23 +8,29 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag '1.jpg',alt:"", class:"d-block w-100", style: 'height:550px;' %>
+        <div class="container">
+        <%= image_tag '1.jpg',alt:"", class:"d-block w-100", style: 'object-fit: cover; overflow: hidden; height:550px;' %>
+        </div>
         <div class="carousel-caption d-none d-md-block">
-          <h5>LES PLUS GRANDES CREATIONS SE FONT EN EQUIPE</h5>
+          <h6 style="color:#c8ac3d";>M&F</h6><h5 style="color:#63e792">PLATEF0RME  D'ENTRAIDE  CREATIVE</h5>
 
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag '2.jpg',alt:"", class:"d-block w-100" , style: 'height:550px;'%>
+        <div class="container">
+        <%= image_tag '2.jpg',alt:"", class:"d-block w-100" , style:'object-fit: cover; overflow: hidden; height:550px;'%>
+        </div>
         <div class="carousel-caption d-none d-md-block">
-          <h5>LES PLUS GRANDES CREATIONS SE FONT EN EQUIPE</h5>
+          <h6 style="color:#c8ac3d";>M&F</h5><h5 style="color:#63e792">MET  EN  LUMIERE  VOS  PROJET</h5>
 
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag '3.jpg',alt:"", class:"d-block w-100", style: 'height:550px;' %>
+        <div class="container">
+        <%= image_tag '3.jpg',alt:"", class:"d-block w-100", style:'object-fit: cover; overflow: hidden; height:550px;' %>
+        </div>
         <div class="carousel-caption d-none d-md-block">
-          <h5>LES PLUS GRANDES CREATIONS SE FONT EN EQUIPE</h5>
+          <h6 style="color:#c8ac3d";>M&F</h6><h5 style="color:#63e792">PARTAGE  VOTRE  TALENT</h5>
 
         </div>
       </div>
@@ -39,8 +45,3 @@
     </button>
   </div>
 
-  <div class="carouselContainer mt-3 mb-3">
-		<% if !user_signed_in? %>
-				<div class="d-flex justify-content-center align-items-center"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link " %> ou <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %> </div>
-		<% end %>
-  </div>

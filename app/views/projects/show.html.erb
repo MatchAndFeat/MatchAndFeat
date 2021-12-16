@@ -1,10 +1,10 @@
 <div class="container my-4">
   <div class="card bg-primary border-success">
 
-    <a id="star_icon_project" href="<%= like_path(likeable: "project") %>" data-method='patch' data-remote='true' class="btn btn-<%= current_user_has_liked?(@project) ? "warning" : "primary" %> primary position-absolute top-0 start-0 fs-2">
+    <a id="<%= "star_icon_project#{@project.id}" %>" href="<%= like_path(likeable: "project") %>" data-method='patch' data-remote='true' class="btn btn-<%= current_user_has_liked?(@project) ? "warning" : "primary" %> primary position-absolute top-0 start-0 fs-2">
       <i class="far fa-star"></i>
-      <span id ="star_counter_project" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-info fs-6">
-        x<%= @project.likes.count %>
+      <span id ="<%= "star_counter_project#{@project.id}" %>" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-info fs-6">
+        <%= @project.likes.count %>
         <span class="visually-hidden">Aime ça !</span>
       </span>
     </a>
@@ -26,6 +26,9 @@
           <%= link_to "Supprimer", project_path(@project), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre collaboration ?" }, class:"link-delete fs-6" %>
           <% end%>
           <p class="card-text"><%= @project.description %></p>
+          <% @project.skills.each do |skill| %>
+          <span class='badge rounded-pill bg-success'><%= skill.name %></span>
+          <% end %>
         </div>
       </div>
     </div>

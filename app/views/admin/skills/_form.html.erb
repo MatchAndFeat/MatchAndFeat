@@ -1,0 +1,12 @@
+<%= form_for ([:admin, @skill]) do |f| %>
+
+<div class="card text-center" style="width: 22rem;">
+    <div class="card-body">
+    <%= label_tag 'Titre' %><br />
+    <%= f.text_field :name %><br />
+
+    <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+
+    </div>
+</div>
+<% end %>
