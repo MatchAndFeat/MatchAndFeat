@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Edition du projet</h2>
+  <%= link_to 'Retour', admin_projects_path, class: 'btn btn-info btn-sm' %>
+
+  <%= form_for ([:admin, @project]) do |f| %>
+  <div class="card col-lg-6 mx-auto">
+    <%= image_tag @project.picture, alt: @project.title, class: "card-img-top" if @project.picture.attached? %>
+    <div class="card-body">
+      <div class="text-muted">
+        <%= "ID : #{@project.id}" %><br />
+        <%= "Crée le #{@project.created_at.strftime('%e %b %Y à %H:%M:%S')}" %><br />
+        <%= "Dernière modification le #{@project.updated_at.strftime('%e %b %Y à %H:%M:%S')}" %><br />
+        <%= link_to "#{@project.feats.count} Feats", admin_project_feats_path(project_id: @project), class: "text-muted" %>
+      </div>
+      <%= label_tag 'Titre' %><br />
+      <%= f.text_field :title %><br />
+
+      <%= label_tag 'Description' %><br />
+      <%= f.text_area :description, rows: "10", cols: "30" %><br />
+
+      <%= label_tag "Modifier l'image d'illustration" %><br />
+      <%= f.file_field :picture %><br />
+
+      <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+
+    </div>
+  </div>
+  <% end %>
+  <div class="card col-lg-6 mx-auto">
+    <h2>Fichiers joints au projet</h2>
+    <% @project.attachements.each do |attachment| %>
+    <%= image_tag attachment, class: "card-img-top" %>
+    <%= attachment.filename %>
+    <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+    <% end %>
+    </div>
+  </div>
+
+</div>
