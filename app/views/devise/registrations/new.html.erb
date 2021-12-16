@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-center align-items-center text-center col-12" style="height:65vh;">   
   <main class="form-signin">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <i class="fas fa-microphone-alt" style="font-size:60px"></i>
     <br>
     <h1 class="h3 mb-3 fw-normal">Inscription</h1>
