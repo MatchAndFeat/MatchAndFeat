@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="d-flex flex-column justify-content-center align-items-center text-center col-12">
+    <h1>  Donation </h1>
+    <p><em>Mon cul sur la commode</p></em>
+    <%= button_to "Un don de 5 €", checkout_create_path(total: 500), class: "btn btn-outline-secondary my-3", remote: true %>
+    <%= button_to "Un don de 10 €", checkout_create_path(total: 1000), class: "btn btn-outline-info my-3", remote: true %>
+    <%= button_to "Un don de 20 €", checkout_create_path(total: 2000), class: "btn btn-outline-warning my-3", remote: true %>
+    <%= button_to "Un don de 50 €", checkout_create_path(total: 5000), class: "btn btn-outline-danger my-3", remote: true %>
+  </div>
+</div>
