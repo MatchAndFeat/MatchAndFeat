@@ -1,6 +1,6 @@
-<h2>Modification d'un utilisateur</h2>
-
 <div class="container">
+  <h2>Modification d'un utilisateur</h2>
+  <%= link_to 'Retour', admin_users_path, class: 'btn btn-info btn-sm' %>
   <%= form_for ([:admin, @user]) do |f| %>
     <div class="card text-center col-lg-4 mx-auto">
     <%= (image_tag @user.avatar, class: "card-img-top") if @user.avatar.attached? %>

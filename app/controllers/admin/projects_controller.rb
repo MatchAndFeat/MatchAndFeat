@@ -31,7 +31,7 @@ module Admin
     def update
       if @project.update_attributes(project_params)
         flash[:success] = "Votre Projet a bien été édité"
-        redirect_to @project
+        redirect_to edit_admin_project_path(@project)
       else
         flash[:error] = "Il y a eu un problème lors de la modification de votre Projet."
         render 'edit'
@@ -41,7 +41,7 @@ module Admin
     def destroy
       if @project.destroy
         flash[:success] = 'Votre Projet a bien été supprimé.'
-        redirect_to root_path
+        redirect_to admin_projects_path
       else
         flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Projet.'
         redirect_to @project
