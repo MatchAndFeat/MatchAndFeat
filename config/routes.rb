@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root 'projects#index'
+
+  get 'legal', to: 'static_pages#legal_mentions'
   
   resources :static_pages, :path => "/a_propos", only: [:index, :new, :create]
 
