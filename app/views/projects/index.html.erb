@@ -4,22 +4,27 @@
 
 <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
   <div class="d-flex justify-content-center align-items-center">
-
     <div class="dropdown">
+      Afficher les projets par
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Trier par
+        <%= @sort_type %>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <% @sort_types.each do |sort_type, name| %>
+        <% @sort_types_list.each do |sort_type, name| %>
         <li><%= link_to name, projects_path(sort_type: sort_type), class: "dropdown-item" %></li>
         <% end %>
       </ul>
     </div>
-
   </div>
 <div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
 
 <div class="container">
+    
+    <% if @projects.empty? %>
+      <h5>Il n'y a pas de résultat à afficher... Lance ton propre projet <%= link_to "par ici", new_project_path %> !</h5>
+    <% end %>
+    
+    
     <% @projects.each do |project| %>
     <div class="col-12 d-flex one-card-custom">
         <% if project.picture.attached? %>

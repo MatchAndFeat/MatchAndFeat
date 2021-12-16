@@ -4,8 +4,17 @@ class ProjectsController < ApplicationController
   before_action :ownership_verification, only: [:edit, :update, :destroy]
 
   def index
-    @sort_types = { popularity: "Populaires", last_created: "Plus récents", last_feated: "Derniers feats", interest: "Centre d'intérêt" }
-    @projects = Project.sorted_by(params[:sort_type])
+    @sort_types_list = { last_created: "derniers crées",
+                         popularity: "popularité",
+                         common_skills: "compétences communes", 
+                         liked: "projets aimés", 
+                         feated: "tes feats" }
+    @projects = projects_sorted_by(params[:sort_type])
+    if params[:sort_type].nil?
+      @sort_type = @sort_types_list[:last_created]
+    else
+      @sort_type = @sort_types_list[params[:sort_type].to_sym]
+    end
   end
 
   def show
@@ -65,6 +74,29 @@ class ProjectsController < ApplicationController
     unless @project.user == current_user
       flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
       redirect_to root_path
+    end
+  end
+
+  def projects_sorted_by(type)
+    case type
+    when "popularity"
+      Project.all.sort_by { |project| project.likes.count }.reverse
+    when "last_created"
+      Project.all.order(created_at: :desc)
+    when "common_skills"
+      interest = []
+      current_user.skills.each do |user_skill|
+        Project.all.each do |project|
+          interest << project if project.skills.include?(user_skill)
+        end
+      end
+      interest.uniq
+    when "liked"
+      Project.all.select { |project| project.likers.include?(current_user) }
+    when "feated"
+      Project.all.select { |project| project.featers.include?(current_user) }
+    else
+      Project.all.order(created_at: :desc)
     end
   end
 end
