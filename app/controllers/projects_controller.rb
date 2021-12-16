@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
   before_action :ownership_verification, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all.order(id: :desc)
-
+    @sort_types = { popularity: "Populaires", last_created: "Plus récents", last_feated: "Derniers feats", interest: "Centre d'intérêt" }
+    @projects = Project.sorted_by(params[:sort_type])
   end
 
   def show
