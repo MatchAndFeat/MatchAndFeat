@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def legal_mentions
+  end
+
   def index
     @contact = StaticPage.new(params[:static_page])
   end
