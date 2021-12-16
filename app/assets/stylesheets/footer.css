@@ -2,13 +2,14 @@ footer {
     background: #f1f1f1;
     padding: 30px 0;
     bottom: 0;
-    position: relative;
+    position: absolute;
     width: 100%;
 }
 
 .footer-container {
     max-width: 1400px;
     margin: auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
