@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Modification d'un utilisateur</h2>
+  <%= link_to 'Retour', admin_users_path, class: 'btn btn-info btn-sm' %>
+  <%= form_for ([:admin, @user]) do |f| %>
+    <div class="card text-center col-lg-4 mx-auto">
+    <%= (image_tag @user.avatar, class: "card-img-top") if @user.avatar.attached? %>
+      <div class="card-body">
+
+        <h3>ID : <%= @user.id %></h3>
+        <%= label_tag 'Adresse mail' %><br />
+        <%= f.email_field :email %><br /><br />
+        <%= label_tag "Nom d'utilisateur" %><br />
+        <%= f.text_field :user_name %><br /><br />
+        <%= label_tag "Lien réseaux social" %><br />
+        <%= f.text_field :social_link %><br /><br />
+        <%= label_tag 'Status du compte (active, admin)' %>
+        <%= f.text_field :status %><br />
+      
+        <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+      </div>
+    </div>
+  <% end %>
+</div>

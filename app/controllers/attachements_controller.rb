@@ -23,7 +23,7 @@ class AttachementsController < ApplicationController
     elsif @attachment.record_type == "Feat"
       owner = Feat.find(@attachment.record_id).user
     end
-    unless owner == current_user
+    unless owner == current_user || current_user.status == "admin"
       flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
       redirect_to root_path
     end
