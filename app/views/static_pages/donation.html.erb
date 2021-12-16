@@ -1,10 +1,21 @@
+
+
 <div class="container">
   <div class="d-flex flex-column justify-content-center align-items-center text-center col-12">
-    <h1>  Donation </h1>
-    <p><em>Mon cul sur la commode</p></em>
+    <h1>  Espace Donation </h1>
+    <p><em class="text-info">Cette page d'aide explique pourquoi Match & Feat a besoin de dons pour vivre.</p></em>
+    <br>
+    <h4> Le site Match & Feat est-il financé entièrement par les dons ? </h4>
+    <p><em class="text-info">Oui. Match & Feat n'arbore aucune publicité. L'argent nécessaire au fonctionnement de Match & Feat vient intégralement de dons : lors de la présente levée de fonds ou par des dons ponctuels spontanés.</em></p>
+    <br>
+    <h4> À quoi servent tes dons ? </h4>
+    <p><em class="text-info">La part la plus importante va à la maintenance du site, frais d'hébergement serveur et autres frais. La seconde part sert à la redistribution sociale, tel que l'achat de matériel, instrument de musique ou la mise en place de formations pour de nouveaux artistes à en devenir dans les milieux les plus défavorisés.</em></p>
+    <p><em class="text-info"> Les développeurs de Match & Feat ne sont pas rémunérés.</em></p>
+    <div class="d-flex justify-content-around">
     <%= button_to "Un don de 5 €", checkout_create_path(total: 500), class: "btn btn-outline-secondary my-3", remote: true %>
     <%= button_to "Un don de 10 €", checkout_create_path(total: 1000), class: "btn btn-outline-info my-3", remote: true %>
     <%= button_to "Un don de 20 €", checkout_create_path(total: 2000), class: "btn btn-outline-warning my-3", remote: true %>
     <%= button_to "Un don de 50 €", checkout_create_path(total: 5000), class: "btn btn-outline-danger my-3", remote: true %>
+    </div>
   </div>
 </div>
