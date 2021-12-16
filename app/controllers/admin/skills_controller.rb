@@ -1,6 +1,6 @@
 module Admin
   class SkillsController < ApplicationController
-    before_action :set_skill, except: [:index, :new, :create]
+    before_action :set_skill, only: [:edit, :destroy, :update]
 
     def index
       @skills = Skill.all
@@ -17,7 +17,7 @@ module Admin
       @skill = Skill.new(skill_params)
       if @skill.save
         flash[:success] = "Votre Compétence a bien été crée !"
-        redirect_to @skill
+        redirect_to admin_skills_path
       else
         flash[:warning] = "Il y eu un problème lors de la création de votre Compétence."
         render 'new'
@@ -30,9 +30,9 @@ module Admin
     def update
       if @skill.update_attributes(skill_params)
         flash[:success] = "Votre Compétence a bien été édité"
-        redirect_to @skill
+        redirect_to admin_skills_path
       else
-        flash[:error] = "Il y a eu un problème lors de la modification de votre Compétence."
+        flash[:warning] = "Il y a eu un problème lors de la modification de votre Compétence."
         render 'edit'
       end
     end
@@ -40,10 +40,10 @@ module Admin
     def destroy
       if @skill.destroy
         flash[:success] = 'Votre Compétence a bien été supprimé.'
-        redirect_to root_path
+        redirect_to admin_skills_path
       else
         flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Compétence.'
-        redirect_to @skill
+        redirect_to admin_skills_path
       end
     end
 

@@ -25,8 +25,8 @@
       <div class="card-body">
         <h2 class="card-title">Outils et statistiques</h2>
         <%= link_to "Ajout/retrait de compétences", admin_skills_path, class: "btn btn-primary btn-sm" %>
-        <p class="card-text">Feat posés</p>
-        <%= link_to 'Outils et statistiques', admin_projects_path, class: "btn btn-primary" %>
+        <p class="card-text mt-2"><%= ActiveStorage::Attachment.count %> fichiers déposés</p>
+        <p class="card-text"><%= Like.count %> likes posés</p>
       </div>
     </div>
   </div>
