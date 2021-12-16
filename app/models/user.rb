@@ -9,7 +9,8 @@ class User < ApplicationRecord
       presence: true,
       uniqueness: true,
       format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-      
+  validates :password, presence: true
+
   has_many :projects, dependent: :destroy
   has_many :feats, dependent: :destroy
   has_many :likes, dependent: :destroy
