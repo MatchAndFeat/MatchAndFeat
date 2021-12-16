@@ -240,12 +240,12 @@ sup {
 }
 
 a {
-    color: #fff;
-    text-decoration: underline;
+    color: var(--bs-info);
+    text-decoration: none;
 }
 
 a:hover {
-    color: var(--bs-secondary);
+    color: var(--bs-info);
 }
 
 a:not([href]):not([class]),
@@ -9577,6 +9577,9 @@ fieldset:disabled .btn {
 
 #form_contact_custom {
     width: 70vh;
+}
+#star_icon_project, #star_counter_project{
+    z-index: 999;
 }
 
 @media (max-width: 1000px) {

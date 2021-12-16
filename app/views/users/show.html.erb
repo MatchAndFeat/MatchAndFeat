@@ -22,7 +22,7 @@
           <% if @user.social_link? %>
           <tr>
             <th scope="row", class="text-light">Réseau social :</th>
-            <td></td>
+            <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link, target: :_blank %></td> 
           </tr>
           <% end %>
           <tr>
