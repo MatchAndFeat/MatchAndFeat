@@ -9,7 +9,8 @@
       <div class="text-muted">
         <%= "ID : #{@project.id}" %><br />
         <%= "Crée le #{@project.created_at.strftime('%e %b %Y à %H:%M:%S')}" %><br />
-        <%= "Dernière mise à jour le #{@project.updated_at.strftime('%e %b %Y à %H:%M:%S')}" %>
+        <%= "Dernière modification le #{@project.updated_at.strftime('%e %b %Y à %H:%M:%S')}" %><br />
+        <%= link_to "#{@project.feats.count} Feats", admin_project_feats_path(project_id: @project), class: "text-muted" %>
       </div>
       <%= label_tag 'Titre' %><br />
       <%= f.text_field :title %><br />

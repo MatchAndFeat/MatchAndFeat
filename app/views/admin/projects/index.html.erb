@@ -22,7 +22,7 @@
         <th><%= project.created_at.strftime('%e %b %Y') %></th>
         <th><%= project.feats.count %></th>
         <th><%= project.likers.count %></th>
-        <th><%= link_to 'Afficher/Editer', edit_admin_project_path(project), class: 'btn btn-info btn-sm' %></th>
+        <th><%= link_to 'Afficher/Editer', edit_admin_project_path(project), class: 'btn btn-secondary btn-sm' %></th>
         <th><%= link_to 'Supprimer', admin_project_path(project), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce projet ?" }, class: 'btn btn-danger btn-sm'%></th>
       </tr>
     <% end %>

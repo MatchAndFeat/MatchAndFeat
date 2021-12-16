@@ -25,7 +25,7 @@
       <th><%= user.feats.count %></th>
       <th><%= user.likes.count %></th>
       <th><%= "OUI" if user.status == "admin" %></th>
-      <th><%= link_to 'Editer', edit_admin_user_path(user), class: 'btn btn-primary btn-sm' %></th>
+      <th><%= link_to 'Afficher/Editer', edit_admin_user_path(user), class: 'btn btn-secondary btn-sm' %></th>
       <th><%= link_to 'Supprimer', admin_user_path(user), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cet utilisateur ?" }, class: 'btn btn-danger btn-sm'%></th>
     </tr>
     <% end %>

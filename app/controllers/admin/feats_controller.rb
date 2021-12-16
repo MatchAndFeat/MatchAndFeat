@@ -4,6 +4,7 @@ module Admin
 
     def index
       @feats = Project.find(params[:project_id]).feats.order(id: :desc)
+      @project = Project.find(params[:project_id])
     end
 
     def show
@@ -33,7 +34,7 @@ module Admin
     def update
         if @feat.update_attributes(feat_params)
           flash[:success] = "Votre Feat a bien été édité"
-          redirect_to @feat.project
+          redirect_to admin_project_feats_path(@feat.project)
         else
           flash[:warning] = "Il y a eu un problème lors de la modification de votre Feat."
           render 'edit'
@@ -43,7 +44,7 @@ module Admin
     def destroy
       if @feat.destroy
         flash[:success] = 'Votre Feat a bien été supprimé.'
-        redirect_to projects_path(params[:project_id])
+        redirect_to edit_admin_project_path(params[:project_id])
       else
         flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Feat.'
         redirect_to @feat
