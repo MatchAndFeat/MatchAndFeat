@@ -2,14 +2,6 @@
 
 <% if user_signed_in? %>
 
-<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
-  <div class="d-flex justify-content-end align-items-center">
-      <%= form_with project: @projects, class:"btn btn-primary mx-5" do |form|%>
-        <%= form.select :project, [["Plus récent", "recently"], ["Le plus de feats", ""], ["Le plus de likes", ""]], { :class => "bg-primary" } %>
-      <% end %>
-  </div>
-<div style="border-top: 1px solid #ecc93c;margin: 20px 0;"></div>
-
 <div class="container">
     <% @projects.each do |project| %>
     <div class="col-12 d-flex one-card-custom">
@@ -27,7 +19,13 @@
                 <p class="text-truncate card-text"><%= project.description %></p>  
 
                 <div class="d-flex justify-content-between">
-                    <p><em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <% if project.feats.count < 1 %>
+                    <p><em>Pas de feats sur ce projet</em></p>
+                    <% elsif project.feats.count == 1 %>
+                    <p><em>1 feat sur ce projet</em></p>
+                    <% else %>
+                    <em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <% end %>
                     <p><%= project.likers.count %> <i class="fa<%= current_user_has_liked?(project) ? "s" : "r" %> fa-heart"></i></p>
                     <%= link_to "Go to the project", project_path(project.id), class:"btn btn-secondary" %>
                 </div>
