@@ -1,7 +1,6 @@
 <% if @target.is_a?(Project) %>
-  console.log("Je suis dans project")
-  like_counter = document.getElementById("star_counter_project")
-  like_status = document.getElementById("star_icon_project")
+  like_counter = document.getElementById("<%= "star_counter_project#{@target.id}" %>")
+  like_status = document.getElementById("<%= "star_icon_project#{@target.id}" %>")
   <% if @current_user_like_status == "liked" %>
     like_status.classList.replace("btn-primary", "btn-warning")
   <% else %>
