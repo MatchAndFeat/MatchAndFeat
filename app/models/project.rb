@@ -8,6 +8,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :likes, as: :likeable, dependent: :destroy
   has_many :likers, through: :likes, source: :user
+  has_many :featers, through: :feats, source: :user
   has_and_belongs_to_many :skills
  
 
@@ -28,5 +29,4 @@ class Project < ApplicationRecord
   def create_project_email_send
     UserMailer.create_project_email(self).deliver_now
   end
-
 end
