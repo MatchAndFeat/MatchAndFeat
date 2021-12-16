@@ -28,9 +28,9 @@
     <% @projects.each do |project| %>
     <div class="col-12 d-flex one-card-custom">
         <% if project.picture.attached? %>
-        <%= image_tag project.picture,alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;" %>
+        <%= image_tag project.picture.variant(resize: "400x400"),alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"border-radius:30px;" %>
         <% else %>
-        <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"height:300px;border-radius:30px;"%>
+        <%= image_tag 'default.jpg',alt:"#{project.title}", class:"col-lg-3 col-md-12 m-2", style:"border-radius:30px;"%>
         <% end %>
         
         <div class="card w-75 mx-1 my-2 bg-primary border-success">
@@ -39,21 +39,25 @@
                 <p class="text-muted"><em>Publié le <%= project.created_at.strftime('%e %b %Y')%></em></p>
             </div>
             <div class="card-body bg-primary d-flex flex-column justify-content-around">
+                <div class="mb-1 text-muted">
+                <% project.skills.each do |skill| %>
+                <span class='badge rounded-pill  mx-1'><%= skill.name %></span>
+                <% end %>
+                </div>
                 <p class="text-truncate card-text"><%= project.description %></p>
-
                 <div class="d-flex justify-content-around">
                     <% if project.feats.count < 1 %>
                     <p><em>Pas de feats sur ce projet</em></p>
                     <% elsif project.feats.count == 1 %>
                     <p><em>1 feat sur ce projet</em></p>
                     <% else %>
-                    <em><%= project.feats.count%> feats sur ce projet</em></p>
+                    <p><em><%= project.feats.count%> feats sur ce projet</em></p>
                     <% end %>
-                    <a href="<%= project_path(project.id)%>" class="btn btn-<%= current_user_has_liked?(project) ? "warning" : "primary" %> primary">
+                    <a id="<%= "star_icon_project#{project.id}" %>" href="<%= like_path(likeable: "project", id: project.id) %>" data-method='patch' data-remote='true' class="btn btn-<%= current_user_has_liked?(project) ? "warning" : "primary" %> primary">
                         <i class="far fa-star"></i>
-                        x<%= project.likes.count %>
+                        <span id ="<%= "star_counter_project#{project.id}" %>"><%= project.likes.count %></span>
                     </a>
-                    <%= link_to "détail du projet", project_path(project.id), class:"btn btn-secondary" %>
+                    <%= link_to "détails du projet", project_path(project.id), class:"btn btn-success" %>
                 </div>
             </div>
         </div>
