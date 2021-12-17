@@ -1,27 +1,30 @@
-<h2>Compétences en base de donnée</h2>
-<div><%= link_to 'Accueil Admin', admin_root_path, class: 'btn btn-info mb-1' %>
-<%= link_to '+ Ajouter une compétence', new_admin_skill_path, class: 'btn btn-info mb-1' %>
-</div>
 
-<table class="table table-hover table-sm bg-white">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Compétence</th>
-      <th scope="col">Affectations sur projets</th>
-      <th scope="col">Affectations sur utilisateurs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @skills.each do |skill| %>
+<div class="container">
+  <h2>Compétences en base de donnée</h2>
+  <div><%= link_to 'Accueil Admin', admin_root_path, class: 'btn btn-info mb-1' %>
+  <%= link_to '+ Ajouter une compétence', new_admin_skill_path, class: 'btn btn-info mb-1' %>
+  </div>
+
+  <table class="table table-hover table-sm bg-white">
+    <thead>
       <tr>
-        <th><%= skill.id %></th>
-        <th><%= skill.name %></th>
-        <th><%= skill.projects.count %></th>
-        <th><%= skill.users.count %></th>
-        <th><%= link_to 'Afficher/Editer', edit_admin_skill_path(skill), class: 'btn btn-secondary btn-sm' %></th>
-        <th><%= link_to 'Supprimer', admin_skill_path(skill), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cette compétence ?" }, class: 'btn btn-danger btn-sm'%></th>
+        <th scope="col">ID</th>
+        <th scope="col">Compétence</th>
+        <th scope="col">Affectations sur projets</th>
+        <th scope="col">Affectations sur utilisateurs</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @skills.each do |skill| %>
+        <tr>
+          <th><%= skill.id %></th>
+          <th><%= skill.name %></th>
+          <th><%= skill.projects.count %></th>
+          <th><%= skill.users.count %></th>
+          <th><%= link_to 'Afficher/Editer', edit_admin_skill_path(skill), class: 'btn btn-secondary btn-sm' %></th>
+          <th><%= link_to 'Supprimer', admin_skill_path(skill), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cette compétence ?" }, class: 'btn btn-danger btn-sm'%></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

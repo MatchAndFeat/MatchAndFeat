@@ -1,30 +1,32 @@
-<h2>Projets en base de donnée</h2>
-<%= link_to 'Accueil Admin', admin_root_path, class: 'btn btn-info mb-1' %>
+<div class="container">
+  <h2>Projets en base de donnée</h2>
+  <%= link_to 'Accueil Admin', admin_root_path, class: 'btn btn-info mb-1' %>
 
 
-<table class="table table-hover table-sm bg-white">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Titre</th>
-      <th scope="col">Créateur</th>
-      <th scope="col">Crée le</th>
-      <th scope="col">Feats</th>
-      <th scope="col">Likes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
+  <table class="table table-hover table-sm bg-white">
+    <thead>
       <tr>
-        <th><%= project.id %></th>
-        <th><%= project.title %></th>
-        <th><%= project.user.user_name + "(##{project.user.id})" %></th>
-        <th><%= project.created_at.strftime('%e %b %Y') %></th>
-        <th><%= project.feats.count %></th>
-        <th><%= project.likers.count %></th>
-        <th><%= link_to 'Afficher/Editer', edit_admin_project_path(project), class: 'btn btn-secondary btn-sm' %></th>
-        <th><%= link_to 'Supprimer', admin_project_path(project), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce projet ?" }, class: 'btn btn-danger btn-sm'%></th>
+        <th scope="col">ID</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Créateur</th>
+        <th scope="col">Crée le</th>
+        <th scope="col">Feats</th>
+        <th scope="col">Likes</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <th><%= project.id %></th>
+          <th><%= project.title %></th>
+          <th><%= project.user.user_name + "(##{project.user.id})" %></th>
+          <th><%= project.created_at.strftime('%e %b %Y') %></th>
+          <th><%= project.feats.count %></th>
+          <th><%= project.likers.count %></th>
+          <th><%= link_to 'Afficher/Editer', edit_admin_project_path(project), class: 'btn btn-secondary btn-sm' %></th>
+          <th><%= link_to 'Supprimer', admin_project_path(project), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce projet ?" }, class: 'btn btn-danger btn-sm'%></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
