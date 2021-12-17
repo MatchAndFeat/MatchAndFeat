@@ -8,32 +8,30 @@
   <p class="text-center w-responsive mx-auto mb-5"> Remplissez le formulaire ci-dessous pour nous envoyer un message et nous vous répondrons dans les plus brefs délais !</p>
   <div class="row">
     <div class="col-md-9 col-sm-12 mb-md-0 mb-5">
-      <form id="contact-form" name="contact-form" method="POST">
-        <div class="row m-2">
-          <div class="col-md-4">
-            <div class="md-form mb-0">
-              <%= f.label :Pseudo %></br></br>
-              <%= f.text_field  :name, required: true, class: "contact-form-text-area" %></br>
-            </div>
+      <div class="row m-2">
+        <div class="col-md-4">
+          <div class="md-form mb-0">
+            <%= f.label :Pseudo %><br /><br />
+            <%= f.text_field  :name, required: true, class: "contact-form-text-area" %><br />
           </div>
+        </div>
 
-          <div class="col-md-4">
-            <div class="md-form mb-0">
-              <%= f.label :Email %></br></br>
-              <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
-            </div>
+        <div class="col-md-4">
+          <div class="md-form mb-0">
+            <%= f.label :Email %><br /><br />
+            <%= f.text_field :email, required: true, class: "contact-form-text-area" %><br />
           </div>
         </div>
-        <div class="row m-2">
-          <div class="col-md-12">
-            <div class="md-form">
-              <%= f.label :Message %></br>
-              <%= f.text_area :message, rows: 3, cols: 30, required: true, class: "contact-form-text-area" %></br></br>
-            </div>
+      </div>
+      <div class="row m-2">
+        <div class="col-md-12">
+          <div class="md-form">
+            <%= f.label :Message %><br />
+            <%= f.text_area :message, rows: 3, required: true, class: "contact-form-text-area" %><br /><br />
           </div>
         </div>
-        <div><%= f.submit 'Envoyer votre message', class: 'btn btn-outline-warning' %></div>
-      </form>
+      </div>
+      <%= f.submit 'Envoyer à Match & Feat', class: 'btn btn-outline-warning mx-3' %>
     </div>
 
     <div class="col-md-3 col-sm-12 text-center">
@@ -50,5 +48,5 @@
       </ul>
     </div>
   </div>
-<% end %>
 </section>
+<% end %>
