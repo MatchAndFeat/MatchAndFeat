@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => "/Mon_Profil"
 
-  resources :users
+  resources :users, except: [:new, :index, :create]
   resources :projects, :path => "/Projets" do
-    resources :feats, :path => "/Feats" do
-    end
+    resources :feats, except: [:index] ,:path => "/Feats"
   end
   resources :attachements, only: [:destroy]
   resources :likes, only: [:update]
@@ -25,11 +24,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'static_pages#index'
-    resources :users
-    resources :projects do
-      resources :feats
+    resources :users, except: [:new, :create]
+    resources :projects, except: [:new, :create] do
+      resources :feats, only: [:update, :destroy]
     end
-    resources :skills
+    resources :skills, except: [:show]
   end
 
 end

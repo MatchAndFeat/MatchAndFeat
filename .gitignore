@@ -27,4 +27,4 @@
 /config/master.key
 
 # Ignore APIKEY
-.env 
+.env
