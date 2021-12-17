@@ -15,13 +15,12 @@ class StaticPagesController < ApplicationController
     @contact.request = request
     respond_to do |format|
       if @contact.deliver
-        # re-initialize Home object for cleared form
         @contact = StaticPage.new
         format.html { render 'index'}
-        format.js   { flash.now[:success] = @message = "Merci pour votre message, nous vous contactons dans les plus bref délais !" }
+        format.js   { flash.now[:success] = @message = "Merci pour ton message, nous te contacterons si nécessaire dans les plus bref délais !" }
       else
         format.html { render 'index' }
-        format.js   { flash.now[:error] = @message = "Votre message n'a pas été envoyé." }
+        format.js   { flash.now[:warning] = @message = "Ton message n'a pas pu être envoyé." }
       end
     end
   end

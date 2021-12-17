@@ -1,16 +1,9 @@
 module Admin
   class UsersController < AdminController
-    before_action :set_user, except: [:index, :new, :create]
+    before_action :set_user, except: [:index]
 
     def index
       @users = User.order(:id)
-    end
-
-    def new
-      @user = User.new
-    end
-
-    def show
     end
 
     def edit
@@ -43,7 +36,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:email, :user_name, :social_link, :status )
+      params.require(:user).permit(:email, :user_name, :social_link, :status)
     end
 
   end

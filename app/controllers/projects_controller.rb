@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   def show
     @feat = Feat.new
   end
-  
+
   def new
     @project = Project.new
   end
@@ -29,10 +29,10 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      flash[:success] = "Votre projet a bien été crée !"
+      flash[:success] = "Ton projet a bien été publié !"
       redirect_to @project
     else
-      flash[:warning] = "Il y eu un problème lors de la création de votre Projet."
+      flash[:warning] = "Il y eu un problème lors de la création de ton projet."
       render 'new'
     end
   end
@@ -42,20 +42,20 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update_attributes(project_params)
-      flash[:success] = "Votre Projet a bien été édité"
+      flash[:success] = "Ton projet a bien été édité"
       redirect_to @project
     else
-      flash[:error] = "Il y a eu un problème lors de la modification de votre Projet."
+      flash[:warning] = "Il y a eu un problème lors de la modification de ton projet."
       render 'edit'
     end
   end
   
   def destroy
     if @project.destroy
-      flash[:success] = 'Votre Projet a bien été supprimé.'
+      flash[:success] = 'Ton projet a bien été supprimé.'
       redirect_to root_path
     else
-      flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Projet.'
+      flash[:warning] = 'Il y a eu un problème lors de la suppression de ton projet.'
       redirect_to @project
     end
   end
@@ -72,7 +72,7 @@ class ProjectsController < ApplicationController
 
   def ownership_verification
     unless @project.user == current_user
-      flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
+      flash[:danger] = "L'accès à cette page est restreint."
       redirect_to root_path
     end
   end
