@@ -9,6 +9,7 @@ class Feat < ApplicationRecord
   has_many :likers, through: :likes, source: :user
   
   validates :title, presence: true, length: { in: 5..150 }
+  validates :description, presence: true, length: { in: 5..3000 }
   validates :attachements, 
     size: { less_than: 20.megabytes },
     content_type: ['image/png', 'image/jpg', 'image/jpeg',
