@@ -11,9 +11,23 @@ _Le premier vendredi vous rendrez votre première version fonctionnelle du proje
 
 _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de votre succès ou échec au projet final._
 
+# Présentation
+
+> Première plateforme d'entraide créative
+
+Match & Feat est un lieu de rencontre artistique pour collaboration musicale, poster votre projet inachevé afin de laisser la créativité d'un tier s'exprimer.
+
+> Mettre en lumière votre projet
+
+Ne laisser pas dormir vos projets inachever, donner lui une visibilité aux yeux et aux oreilles de tous pour donner l'occasion a d'autres de combler le manque
+
+> Mettre en lumière votre talent
+
+De nombreux talents en tous genres sont disponibles pour collaborer et apporter leur idées artistiques.
+
 # Version MVP du projet
 
-. L'utilisateur peut __s'inscrire / se connecter__ : :heavy_check_mark:
+. L'utilisateur peut __s'inscrire__ / __se connecter__ : :heavy_check_mark:
 
 . L'utilisateur peut __modifier__ son profil : :heavy_check_mark:
 
@@ -31,6 +45,24 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 
 . L'utilisateur peut __faire un don__ au site : :heavy_check_mark:
 
+# Version FINALE du projet
+
+. L'utilisateur peut __faire un don__ sur plusieurs montants differents : :heavy_check_mark:
+
+. L'utilisateur peut __télécharger__ les fichiers dans les projets et les feats : :heavy_check_mark:
+
+. L'utilisateur peut __charger__ des fichiers joints à son projet ou son feat : :heavy_check_mark:
+
+. L'utilisateur peut __Liker__ les feats et les projets : :heavy_check_mark:
+
+. L'utilisateur peut __Contacter__ le site en cas de problème : :heavy_check_mark:
+
+. L'utilisateur peut __trier__ suivant ses paramètres pour affiner ses recherches : :heavy_check_mark:
+
+. L'administrateur du site peut __accèder__ à un dashboard de gestion : :heavy_check_mark:
+
+. Le service du mailer est __complet__ : :heavy_check_mark:
+
 
 
 # Prérequis à l'installation
@@ -39,26 +71,41 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 ***
 > Rails en version 5.2.6
 
+
 # Lancement de l'application en local
-  1. Ouvrir un terminal dans le dossier racine de l'application
-  > 1. ```bundle install```
 
-  > 2. ```rails s```
+  Ouvrir un terminal dans le dossier racine de l'application
+   ```shell
+  bundle install
+  ```
 
-  > 3. ```rails db:create db:migrate db:seed```
+  ```shell
+  rails db:create db:migrate db:seed
+  ```
 
-  2. Accéder au serveur local : http://localhost:3000/
+  ```shell
+  rails s
+  ```
+
+  Accéder au serveur : 
+  <button onclick="window.location.href='https:http://localhost:3000/">LOCAL</button>
 
 # Accéder à l'application en production
-  LIEN
+
+<button onclick="window.location.href='https://matchandfeathp.herokuapp.com">HEROKU</button>
+
 
 # Profil admin
-      profil : 
+
+      email : matchandfeathp@gmail.com
       
       mdp : adminadmin
 
+# Contact
+
 
 # Auteur
+
 **Lucas.M**
 
 **Hary.A**
