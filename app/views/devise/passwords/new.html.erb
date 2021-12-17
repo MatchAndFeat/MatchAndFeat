@@ -1,17 +1,19 @@
-<div class="d-flex flex-column justify-content-center align-items-center text-center col-12" style="height:70vh;">   
-  <h2>Forgot your password?</h2>
+<div class="card align-self-center text-center border-secondary mx-auto">
+    <div class="card-body bg-dark text-warning">  
+  <h1 class="h1 mb-3 font-weight-normal text-center">Mot de passe oublié ?</h1>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field m-2">
-      <%= f.label :Votre_email, class:"mb-2" %><br />
+      <%= f.label :"Votre_email_d_'_inscription", class:"mb-2" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="actions m-2">
-      <%= f.submit "Envoyez-moi les instructions de réinitialisation du mot de passe", class:"btn btn-secondary" %>
+      <%= f.submit "Envoyez-moi les instructions de réinitialisation du mot de passe", class:"btn btn-outline-danger" %>
     </div>
+  </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
