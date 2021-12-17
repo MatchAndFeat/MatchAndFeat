@@ -28,6 +28,7 @@
     <div class="actions m-3">
       <%= f.submit "Se connecter", class:"btn btn-outline-secondary" %>
     </div>
+    <%= render "devise/shared/links" %>
   <% end %>
 
   <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-outline-info" %>
