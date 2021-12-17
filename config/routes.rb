@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get 'legal', to: 'static_pages#legal_mentions'
   get 'donation', to: 'static_pages#donation'
-  
-  resources :static_pages, :path => "/a_propos", only: [:index, :new, :create]
+  get 'about', to: 'static_pages#about'
+  post 'about', to: 'static_pages#contact_mail'
 
   devise_for :users, :path => "/Mon_Profil"
 

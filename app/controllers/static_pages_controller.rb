@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   
   def about
+    @contact = StaticPage.new(params[:static_page])
   end
 
   def legal_mentions
@@ -9,12 +10,7 @@ class StaticPagesController < ApplicationController
   def donation
   end
 
-  def index
-    @user = current_user
-    @contact = StaticPage.new(params[:static_page])
-  end
-
-  def create
+  def contact_mail
     @contact = StaticPage.new(params[:static_page])
     @contact.request = request
     respond_to do |format|
