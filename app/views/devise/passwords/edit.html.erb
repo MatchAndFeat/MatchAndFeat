@@ -1,6 +1,8 @@
 <div class="card align-self-center text-center border-secondary mx-auto">
-  <div class="card-body bg-dark text-warning">  
-    <h1 class="h1 mb-3 font-weight-normal text-center">Modification du mot de passe</h1>
+  <div class="card-body bg-dark text-warning">
+    <i class="fas fa-user-lock" style="font-size:60px"></i>
+    <br><br>   
+      <h1 class="h1 mb-3 font-weight-normal text-center">Modification du mot de passe</h1>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -19,8 +21,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Changer de mot de passe" %>
+    <div class="actions m-2">
+      <%= f.submit "Changer de mot de passe", class:"btn btn-outline-danger" %>
     </div>
     </div>
   <% end %>
