@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def index
+    @user = current_user
     @contact = StaticPage.new(params[:static_page])
   end
 
