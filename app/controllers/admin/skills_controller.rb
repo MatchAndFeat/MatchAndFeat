@@ -6,9 +6,6 @@ module Admin
       @skills = Skill.all
     end
 
-    def show
-    end
-    
     def new
       @skill = Skill.new
     end
@@ -16,10 +13,10 @@ module Admin
     def create
       @skill = Skill.new(skill_params)
       if @skill.save
-        flash[:success] = "Votre Compétence a bien été crée !"
+        flash[:success] = "La compétence a bien été crée !"
         redirect_to admin_skills_path
       else
-        flash[:warning] = "Il y eu un problème lors de la création de votre Compétence."
+        flash[:warning] = "Il y eu un problème lors de la création de la compétence."
         render 'new'
       end
     end
@@ -29,20 +26,20 @@ module Admin
 
     def update
       if @skill.update_attributes(skill_params)
-        flash[:success] = "Votre Compétence a bien été édité"
+        flash[:success] = "La compétence a bien été édité"
         redirect_to admin_skills_path
       else
-        flash[:warning] = "Il y a eu un problème lors de la modification de votre Compétence."
+        flash[:warning] = "Il y a eu un problème lors de la modification de la compétence."
         render 'edit'
       end
     end
-    
+
     def destroy
       if @skill.destroy
-        flash[:success] = 'Votre Compétence a bien été supprimé.'
+        flash[:success] = 'La compétence a bien été supprimée.'
         redirect_to admin_skills_path
       else
-        flash[:warning] = 'Il y a eu un problème lors de la suppression de votre Compétence.'
+        flash[:warning] = 'Il y a eu un problème lors de la suppression de la compétence.'
         redirect_to admin_skills_path
       end
     end

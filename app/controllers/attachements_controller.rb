@@ -16,7 +16,7 @@ class AttachementsController < ApplicationController
   def set_attachement
     @attachment = ActiveStorage::Attachment.find(params[:id])
   end
-  
+
   def ownership_verification
     if @attachment.record_type == "Project"
       owner = Project.find(@attachment.record_id).user
@@ -24,10 +24,8 @@ class AttachementsController < ApplicationController
       owner = Feat.find(@attachment.record_id).user
     end
     unless owner == current_user || current_user.status == "admin"
-      flash[:danger] = "Vous n'avez pas la permission d'accéder à cette page"
+      flash[:danger] = "L'accès à cette page est restreint."
       redirect_to root_path
     end
   end
-  
 end
-
