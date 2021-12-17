@@ -87,34 +87,28 @@ De nombreux talents en tous genres sont disponibles pour collaborer et apporter 
   rails s
   ```
 
-  Accéder au serveur : 
-  <button onclick="window.location.href='https:http://localhost:3000/">LOCAL</button>
+  Accéder à l'application en développement sur le 
+<a href="//localhost:3000/" class="button danger">serveur local</a>
 
-# Accéder à l'application en production
-
-<button onclick="window.location.href='https://matchandfeathp.herokuapp.com">HEROKU</button>
-
+ Accéder à l'application en production héberger par
+ <a href="https://matchandfeathp.herokuapp.com" class="button danger">HEROKU</a> 
 
 # Profil admin
 
       email : matchandfeathp@gmail.com
       
-      mdp : 
-
-# Contact
+      mdp : ******** (nous demander)
 
 
 # Auteur
 
-**Lucas.M**
-
-**Hary.A**
-
-**Joffrey.C**
-
-**Florent.D**
-
-**Kevin.P**
+| Nom | :notes: GitHub |
+| ---- | ------ |
+| Kévin PIRIOU | <a href="https://github.com/KevinPiriou" class="button danger">@D1sh</a> |
+| Hary ANDRIANARIOSA | <a href="https://github.com/HaryRabarijoely" class="button danger">@HaryRabarijoely</a> |
+| Lucas MARTIN | <a href="https://github.com/kalu6334" class="button danger">@kalu6334</a> |
+| Joffrey CAUGNON | <a href="https://github.com/joffrey7486" class="button danger">@joffrey7486</a> |
+| Florent DEVRIÈSE | <a href="https://github.com/fleopaulD" class="button danger">@fleopaulD</a> |
 
     _@THP/moussaillon_
 
