@@ -6,9 +6,9 @@ class StaticPage < MailForm::Base
  
   def headers
     {
-      :subject => "Email de contact",
+      :subject => "Message d'un utilisateur Match&Feat",
       :to => "matchandfeathp@gmail.com",
-      :from => %("#{name}" <#{email}>)
+      :from => "matchandfeathp@gmail.com"
     }
   end
 end
