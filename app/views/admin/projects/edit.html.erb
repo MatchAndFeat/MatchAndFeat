@@ -31,7 +31,7 @@
     <% @project.attachements.each do |attachment| %>
     <%= image_tag attachment, class: "card-img-top" %>
     <%= attachment.filename %>
-    <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+    <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
     <% end %>
     </div>
   </div>

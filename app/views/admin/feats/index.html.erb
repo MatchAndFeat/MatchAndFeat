@@ -19,14 +19,14 @@
       <%= f.text_area :description, rows: "10", cols: "30" %><br />
       <button type="submit" class="btn btn-primary mt-3">Modifier</button>
       <% end %>
-      <%= link_to "Supprimer", admin_project_feat_path(@project, feat), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce Feat ?" }, class: "btn btn-danger my-2" %>
+      <%= link_to "Supprimer", admin_project_feat_path(@project, feat), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce Feat ?" }, class: "btn btn-danger my-2" %>
     </div>
     <div class="card-footer">
       <h2>Fichiers joints au projet</h2>
       <% feat.attachements.each do |attachment| %>
       <%= image_tag attachment, class: "card-img-top" %>
       <%= attachment.filename %>
-      <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+      <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
       <% end %>
     </div>
   </div>
