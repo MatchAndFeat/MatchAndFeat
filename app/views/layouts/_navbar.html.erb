@@ -11,6 +11,7 @@
         <li class="nav-item"><%= link_to "Démarrer une collab", new_project_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "A propos", static_pages_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Mon profil", user_path(current_user.id), class: "nav-link "%></li>
+        <li class="nav-item"><%= link_to "Donation" ,donation_path, class: "nav-link "%></li>
         <% if current_user.status == "admin" %>
         <li class="nav-item"><%= link_to "Console Admin", admin_root_path, class: "nav-link "%></li>
         <% end %>

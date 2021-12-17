@@ -8,7 +8,13 @@
       </div>
       <div class="border border-warning"></div>
       <br>
+      <% if user_signed_in? %>
+        <a href="/donation" class="link-danger"></i> Faire un don </a>
+        <br>
+      <% end %>
       <a href="/legal" class="link-secondary">Mentions légales</a>
+      <br><br>
+      <div class="border border-warning"></div>
       <br>
       <p>© 2021 THP Created By <b>La Team :</b>  
         <a href="https://github.com/fleopaulD" target="_blank">Florent</a>
