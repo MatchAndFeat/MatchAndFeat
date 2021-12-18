@@ -1,0 +1,12 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              too_short: "Titre : minimum 5 caractères"
+              too_long: "Titre : maximum 150 caractères"
+            description:
+              too_short: "Description : minimum 5 caractères"
+              too_long: "Description : maximum 3000 caractères"
