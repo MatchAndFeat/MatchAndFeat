@@ -24,8 +24,6 @@ RSpec.describe Project, type: :model do
     describe "#description" do
       it { expect(@project).to validate_presence_of(:description) }
     end
-
-
   end
 
   context "associations" do
@@ -41,7 +39,5 @@ RSpec.describe Project, type: :model do
     describe "user" do
       it { expect(@project).to belong_to(:user) }
     end
-
   end
-
 end

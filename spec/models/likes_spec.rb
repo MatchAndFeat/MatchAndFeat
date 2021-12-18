@@ -15,7 +15,6 @@ RSpec.describe Like, type: :model do
     it "is valid with valid attributes" do
       expect(@like).to be_a(Like)
     end
-
   end
 
   context "associations" do
@@ -27,7 +26,5 @@ RSpec.describe Like, type: :model do
     describe "likeable" do
       it { expect(@like).to belong_to(:likeable) }
     end
-  
   end
-
 end
