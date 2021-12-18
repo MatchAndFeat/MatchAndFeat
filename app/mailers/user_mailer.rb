@@ -3,19 +3,19 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user)
     @user = user 
-    @url  = 'https://matchandfeathp.herokuapp.com/Mon_Profil/sign_in' 
+    @url  = 'https://matchandfeathp.herokuapp.com/' 
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
 
   def create_project_email(project)
     @project = project
-    @url = 'https://matchandfeathp.herokuapp.com/Mon_Profil/sign_in'
+    @url = "https://matchandfeathp.herokuapp.com/Projet/#{project.id}"
     mail(to: @project.user.email, subject: 'Création du projet')
   end
 
   def new_feat_email(feat)
     @feat = feat
-    @url = 'https://matchandfeathp.herokuapp.com/Mon_Profil/sign_in'
+    @url = "https://matchandfeathp.herokuapp.com/Projet/#{@feat.project.id}"
     mail(to: @feat.user.email, subject: 'Nouvelle collaboration')
   end
 end
