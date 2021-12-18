@@ -23,7 +23,7 @@
     <% end %>
     <div class="form-floating">
       <div class="field">
-      <%= f.label :password %> <i>(laisse vide si tu ne veux pas le changer)</i><br />
+      <%= f.label :mot_de_passe %> <i>(laisse vide si tu ne veux pas le changer)</i><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>
         <br />
@@ -33,13 +33,13 @@
     </div>
     <div class="form-floating">
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :confirmer_le_mot_de_passe %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </div>
     <div class="form-floating">
       <div class="field">
-        <%= f.label :current_password %> <i>(nous avons besoin de ton mot de passe actuel pour confirmer tes modifications)</i><br />
+        <%= f.label :mot_de_passe %> <i>(nous avons besoin de ton mot de passe actuel pour confirmer tes modifications)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password" %>
       </div>
     </div>
