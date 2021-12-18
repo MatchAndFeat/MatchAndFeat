@@ -4,13 +4,13 @@
   </head>
   <body>
     <p>
-      Salut et merci de ta collaboration !
+      Bonjour et merci de ta collaboration !
     </p>
     <p>
       Ton feat : " <%= @feat.title %> " à bien été inscrit dans le projet " <%= @feat.project.title %> " .
     </p>
     <p>
-      Pour accéder à ton compte et ainsi suivre le projet de collaboration, connecte-toi via : <%= @url %>.
+      Pour continuer à suivre ta contribution, c'est <%= link_to "par ici", @url %>
     </p>
     <p> À très vite sur Match & Feat !</p>
   </body>
