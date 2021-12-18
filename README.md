@@ -12,18 +12,19 @@ _Le premier vendredi vous rendrez votre première version fonctionnelle du proje
 _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de votre succès ou échec au projet final._
 
 # Présentation
+<a href="https://ibb.co/LrPLFqn"><img src="https://i.ibb.co/5k9N0zB/screen-match-feat.png" alt="screen-match-feat" border="0"></a>
 
-> Première plateforme d'entraide créative
+## Première plateforme d'entraide créative
 
-Match & Feat est un lieu de rencontre artistique pour collaboration musicale, poster votre projet inachevé afin de laisser la créativité d'un tier s'exprimer.
+>Match & Feat est un lieu de rencontre artistique pour collaboration musicale, poster votre projet inachevé afin de laisser la créativité d'un tier s'exprimer.
 
-> Mettre en lumière votre projet
+## Mettre en lumière votre projet
 
-Ne laisser pas dormir vos projets inachever, donner lui une visibilité aux yeux et aux oreilles de tous pour donner l'occasion a d'autres de combler le manque
+>Ne laisser pas dormir vos projets inachever, donner lui une visibilité aux yeux et aux oreilles de tous pour donner l'occasion a d'autres de combler le manque
 
-> Mettre en lumière votre talent
+## Mettre en lumière votre talent
 
-De nombreux talents en tous genres sont disponibles pour collaborer et apporter leur idées artistiques.
+>De nombreux talents en tous genres sont disponibles pour collaborer et apporter leur idées artistiques.
 
 # Version MVP du projet
 
