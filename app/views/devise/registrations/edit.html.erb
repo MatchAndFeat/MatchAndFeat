@@ -6,7 +6,7 @@
     <% else %>  
     <%= image_tag 'default_avatar.png', class: "rounded-circle" %>
     <% end %>
-    <br><br><br><br>
+    <br><br><br>
   </div>
 
 <div class="d-flex justify-content-center align-items-center text-center col-12">
@@ -52,7 +52,7 @@
       <br />
     </div>
     <div class="actions m-2">
-      <%= f.submit "Modifier", class:" btn  btn-outline-secondary m-2" %>
+      <%= f.submit "Valider les modifications", class:" btn  btn-outline-secondary m-2" %>
       <%= link_to "Supprimer mon compte",user_registration_path, class:"btn btn-outline-danger m-2", data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ton compte ?" } %>
       <%= link_to "Accueil", projects_path, class:" btn  btn-outline-info m-2"  %>
     </div>
