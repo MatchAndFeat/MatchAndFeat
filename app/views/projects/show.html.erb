@@ -23,7 +23,7 @@
           <p class="card-text"><small class="text-muted">Crée le : <%= @project.created_at.strftime('%e %b %Y')%> par <%= @project.user.user_name %></small></p>
           <% if @project.user == current_user %>
           <%= link_to "Modifier", edit_project_path(@project),class:"link-modify fs-6" %>
-          <%= link_to "Supprimer", project_path(@project), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre collaboration ?" }, class:"link-delete fs-6" %>
+          <%= link_to "Supprimer", project_path(@project), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer votre collaboration ?" }, class:"link-delete fs-6" %>
           <% end%>
           <p class="card-text"><%= @project.description %></p>
           <% @project.skills.each do |skill| %>
@@ -37,7 +37,7 @@
     <h3 class="text-center">Fichiers liés à ce projet</h3>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
-      <% @project.attachements.each do |attachment|%>
+      <% @project.attachments.each do |attachment|%>
       <div class="col">
         <div class="card bg-primary text-center">
           <% if attachment.image? %>
@@ -66,9 +66,9 @@
     <div class="field d-flex flex-column align-items-center justify-content-center">
       <%= form_for([@project, @feat], class:"bg-primary w-100", :method => "post") do |f| %>
       <div class="form-card-page form-floating d-flex flex-column mt-2">
-        <%= f.text_field :title, placeholder: "Que voulez vous apporter ? "%>
+        <%= f.text_field :title, placeholder: "Que veux tu apporter ? "%>
         <%= f.text_area :description, placeholder: "Description du feat...", class:'my-2', required: true %><br />
-        <%= f.file_field :attachements, multiple: true, class: "my-3" %>
+        <%= f.file_field :attachments, multiple: true, class: "my-3" %>
         <%= submit_tag "Je contribue", class:'btn btn-secondary m-2' %>
       </div>
       <% end %>
@@ -83,7 +83,7 @@
         <div class="text-muted small">Posté le : <%= feat.created_at.strftime('%e %b %Y')%> par <%= feat.user.user_name %></div>
         <% if feat.user == current_user %>
         <%= link_to "Modifier", edit_project_feat_path(@project, feat),class:"link-modify fs-6" %>
-        <%= link_to "Supprimer", project_feat_path(@project, feat), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer votre contribution ?" }, class:"link-delete fs-6" %>
+        <%= link_to "Supprimer", project_feat_path(@project, feat), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ta contribution ?" }, class:"link-delete fs-6" %>
         <% end%>
       </div>
       <div class="card-body">
@@ -94,7 +94,7 @@
         </a>
       </div>
       <div class="card-footer text-muted">
-        <%= feat.attachements.count %> Fichiers liés : <% feat.attachements.each do |attachment| %>
+        <%= feat.attachments.count %> Fichiers liés : <% feat.attachments.each do |attachment| %>
         <%= link_to attachment.filename, rails_blob_path(attachment, disposition: "attachment") %>
         <% end %>
       </div>

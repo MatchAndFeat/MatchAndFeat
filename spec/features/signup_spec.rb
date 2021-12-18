@@ -1,22 +1,18 @@
-# spec/features/visitor_signs_up_spec.rb
 require 'rails_helper'
 
 RSpec.feature 'Visitor signs up' do
   scenario 'with valid email and password' do
     sign_up_with Faker::Internet.email, Faker::Internet.password
-
     expect(page).to have_content('Se déconnecter')
   end
 
   scenario 'with invalid email' do
     sign_up_with 'invalid_email', 'password'
-
     expect(page).to have_content("S'inscrire")
   end
 
   scenario 'with blank password' do
     sign_up_with Faker::Internet.email, ''
-    
     expect(page).to have_content("S'inscrire")
   end
 

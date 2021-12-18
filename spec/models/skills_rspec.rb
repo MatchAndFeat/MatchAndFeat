@@ -19,7 +19,6 @@ RSpec.describe Skill, type: :model do
     describe "#name" do
       it { expect(@skill).to validate_presence_of(:name) }
     end
-
   end
 
   context "associations" do
@@ -31,7 +30,5 @@ RSpec.describe Skill, type: :model do
     describe "project" do
       it { expect(@skill).to have_and_belong_to(:project) }
     end
-  
   end
-
 end

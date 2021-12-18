@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true, html: {class: "w-100"}) do |f| %>   
+<%= form_with(model: project, local: true, html: {class: "w-100"}) do |f| %>
 
 <div class="form-floating mt-2 ">
   <div class="field mb-2 ">
@@ -16,13 +16,13 @@
 
 <div class="form-floating mt-3">
   <div class="field mb-2"><br />
-    <%= f.label "Image d'illustration de votre projet", class:"mb-2" %><br />
+    <%= f.label "Image d'illustration de ton projet", class:"mb-2" %><br />
     <%= f.file_field :picture %><br />
   </div>
 </div>
 
 <div class="my-3 text-center" >
-  <%= f.label "Quelles compétences cherchez-vous ?", class: "mb-2" %><br />
+  <%= f.label "Quelles compétences cherchez-tu ?", class: "mb-2" %><br />
   <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>
   <%= b.label(:"data-value" => b.value, class: "m-1") { b.check_box + " " + b.text } %>
   <% end %>
@@ -31,7 +31,7 @@
 <div class="form-floating mt-3">
   <div class="field mb-2"><br />
     <%= f.label "Fichiers Joints", class:"mb-2" %><br />
-    <%= f.file_field :attachements, multiple: true %><br />
+    <%= f.file_field :attachments, multiple: true %><br />
   </div>
 </div>
 

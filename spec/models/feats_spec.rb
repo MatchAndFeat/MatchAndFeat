@@ -24,8 +24,6 @@ RSpec.describe Feat, type: :model do
     describe "#description" do
       it { expect(@feat).to validate_presence_of(:description) }
     end
-
-
   end
 
   context "associations" do
@@ -41,7 +39,5 @@ RSpec.describe Feat, type: :model do
     describe "project" do
       it { expect(@feat).to belong_to(:project) }
     end
-
   end
-
 end

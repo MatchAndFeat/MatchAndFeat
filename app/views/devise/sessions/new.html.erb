@@ -2,33 +2,33 @@
   <main class="form-signin">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <i class="fas fa-microphone-alt" id="logo_icon" style="font-size:60px"></i>
-        <br>
-          <h1 class="h3 mb-3 fw-normal">Connexion</h1>
-              <div class="form-floating mt-3">
-                <div class="field mb-1">
-                  <%= f.label :Email %><br />
-                    <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
-                </div>
-              </div>
-              <div class="form-floating mt-3">
-                <div class="field mb-1">
-                  <%= f.label :Mot_de_passe %><br />
-                    <%= f.password_field :password, autocomplete: "current-password" %>
-                </div>
-              </div>
-              <% if devise_mapping.rememberable? %>
-              <div class="form-floating mt-3">
-                <div class="field mb-1">
-                  <%= f.check_box :remember_me %>
-                    <%= f.label :Se_souvenir_de_moi %>
-                </div>
-              </div>
-            <% end %>
-
-    <div class="actions m-3">
-      <%= f.submit "Se connecter", class:"btn btn-outline-secondary" %>
-    </div>
-  <% end %>
-
-  <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-outline-info" %>
+      <br>
+      <h1 class="h3 mb-3 fw-normal">Connexion</h1>
+      <div class="form-floating mt-3">
+        <div class="field mb-1">
+          <%= f.label :Email %><br />
+          <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+      <div class="form-floating mt-3">
+        <div class="field mb-1">
+          <%= f.label :Mot_de_passe %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="form-floating mt-3">
+          <div class="field mb-1">
+            <%= f.check_box :remember_me %>
+            <%= f.label :Se_souvenir_de_moi %>
+          </div>
+        </div>
+      <% end %>
+      <div class="actions m-3">
+        <%= f.submit "Se connecter", class:"btn btn-outline-secondary" %>
+        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-outline-info" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </main>
 </div>

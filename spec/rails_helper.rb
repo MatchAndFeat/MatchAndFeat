@@ -43,7 +43,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view  
-
+  
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -67,8 +67,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   
-  config.include Devise::Test::ControllerHelpers, type: :controller
-
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec

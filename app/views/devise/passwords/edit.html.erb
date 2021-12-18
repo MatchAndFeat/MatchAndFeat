@@ -1,26 +1,27 @@
-<div class="d-flex flex-column justify-content-center align-items-center text-center col-12" style="height:70vh;">   
-
-  <h2>Modifier son mot de passe</h2>
+<div class="d-flex flex-column justify-content-center align-items-center text-center col-12">
+  <i class="fas fa-user-lock" style="font-size:60px"></i>
+  <br><br>   
+  <h1 class="h1 mb-3 font-weight-normal text-center">Modification du mot de passe</h1>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
 
-    <div class="field">
-      <%= f.label :Mot_de_passe, "New password" %><br />
+    <div class="field m-2">
+      <%= f.label :Mot_de_passe, "Nouveau mot de passe" %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
       <% end %>
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %><br />
+    <div class="field m-2">
+      <%= f.label :confirmer_mot_de_passe, "Confirmer le nouveau mot de passe" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Changer de mot de passe" %>
+    <div class="actions m-2">
+      <%= f.submit "Changer le mot de passe", class:"btn btn-outline-danger" %>
     </div>
   <% end %>
 

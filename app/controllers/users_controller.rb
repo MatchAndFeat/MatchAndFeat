@@ -10,17 +10,17 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(users_params)
-      flash[:success] = "Votre Profil a bien été édité"
+      flash[:success] = "Ton profil a bien été édité"
       redirect_to @user
     else
-      flash[:warning] = "Il y a eu un problème lors de la modification de votre Profil."
+      flash[:warning] = "Il y a eu un problème lors de la modification de ton profil."
       render 'edit'
     end
   end
 
   def destroy
     @user.avatar.purge
-    flash[:success] = 'Votre Avatar a bien été supprimé.'
+    flash[:success] = 'Ton Avatar a bien été supprimé.'
     redirect_to @user
   end
 

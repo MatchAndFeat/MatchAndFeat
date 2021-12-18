@@ -22,7 +22,7 @@
           <th><%= skill.projects.count %></th>
           <th><%= skill.users.count %></th>
           <th><%= link_to 'Afficher/Editer', edit_admin_skill_path(skill), class: 'btn btn-secondary btn-sm' %></th>
-          <th><%= link_to 'Supprimer', admin_skill_path(skill), data: { method: :delete, confirm: "Êtes vous sûr de vouloir supprimer cette compétence ?" }, class: 'btn btn-danger btn-sm'%></th>
+          <th><%= link_to 'Supprimer', admin_skill_path(skill), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer cette compétence ?" }, class: 'btn btn-danger btn-sm'%></th>
         </tr>
       <% end %>
     </tbody>
