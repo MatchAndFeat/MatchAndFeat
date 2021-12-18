@@ -1,6 +1,6 @@
-class AttachementsController < ApplicationController
+class AttachmentsController < ApplicationController
   before_action :require_login
-  before_action :set_attachement
+  before_action :set_attachment
   before_action :ownership_verification
 
   def destroy
@@ -13,7 +13,7 @@ class AttachementsController < ApplicationController
 
   private
 
-  def set_attachement
+  def set_attachment
     @attachment = ActiveStorage::Attachment.find(params[:id])
   end
 

@@ -33,7 +33,7 @@ module Admin
     private
 
     def feat_params
-      params.require(:feat).permit(:title, :description, attachements: [])
+      params.require(:feat).permit(:title, :description, attachments: [])
     end
 
     def set_feat

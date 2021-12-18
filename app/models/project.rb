@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   before_destroy :purge_all_attachments
 
   has_many :feats, dependent: :destroy
-  has_many_attached :attachements, dependent: :destroy
+  has_many_attached :attachments, dependent: :destroy
   has_one_attached :picture
   belongs_to :user
   has_many :likes, as: :likeable, dependent: :destroy
@@ -17,7 +17,7 @@ class Project < ApplicationRecord
   validates :picture, 
     content_type: ['image/png', 'image/jpg', 'image/jpeg'],
     size: { less_than: 3.megabytes }
-  validates :attachements, 
+  validates :attachments, 
     size: { less_than: 20.megabytes },
     content_type: ['image/png', 'image/jpg', 'image/jpeg',
                    'audio/x-wav', 'audio/mpeg',
