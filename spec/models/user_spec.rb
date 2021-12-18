@@ -21,7 +21,6 @@ RSpec.describe User, type: :model do
     end
 
     describe "#password" do
-      it { expect(@user).to validate_presence_of(:password) }
       it { expect(@user).to validate_length_of(:password).is_at_least(6) }
 
     end
