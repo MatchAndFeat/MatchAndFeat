@@ -22,9 +22,7 @@ RSpec.describe User, type: :model do
 
     describe "#password" do
       it { expect(@user).to validate_length_of(:password).is_at_least(6) }
-
     end
-
   end
 
   context "associations" do
@@ -44,7 +42,5 @@ RSpec.describe User, type: :model do
     describe "skills" do
       it { expect(@user).to have_and_belong_to_many(:skills) }
     end
-  
   end
-
 end

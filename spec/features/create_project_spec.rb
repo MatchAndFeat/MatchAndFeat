@@ -1,4 +1,3 @@
-# spec/features/visitor_signs_up_spec.rb
 require 'rails_helper'
 
 RSpec.feature 'User can create a project' do
