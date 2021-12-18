@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
   root 'projects#index'
-
+  
+  resources :static_pages, only: [:create]
   get 'legal', to: 'static_pages#legal_mentions'
   get 'donation', to: 'static_pages#donation'
   get 'about', to: 'static_pages#about'
-  post 'about', to: 'static_pages#contact_mail'
 
   devise_for :users, :path => "/Mon_Profil"
 
