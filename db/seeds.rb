@@ -39,7 +39,7 @@ puts "#{User.count} users have been created."
   project.picture.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
   rand(1..6).times do
     rand_filename = "#{rand(1..16)}.png"
-    project.attachements.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
+    project.attachments.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
   end
 end
 
@@ -53,7 +53,7 @@ puts "#{Project.count} projects have been created."
     )
   rand(1..6).times do
     rand_filename = "#{rand(1..16)}.png"
-    feat.attachements.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
+    feat.attachments.attach(io: File.open(File.join(Rails.root,"db/seeds_assets/projects/#{rand_filename}")), filename: rand_filename)
   end
 end
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :projects, :path => "/Projets" do
     resources :feats, except: [:index] ,:path => "/Feats"
   end
-  resources :attachements, only: [:destroy]
+  resources :attachments, only: [:destroy]
   resources :likes, only: [:update]
 
   scope '/checkout' do

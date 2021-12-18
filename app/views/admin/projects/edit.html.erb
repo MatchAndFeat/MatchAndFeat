@@ -28,10 +28,10 @@
   <% end %>
   <div class="card col-lg-6 mx-auto">
     <h2>Fichiers joints au projet</h2>
-    <% @project.attachements.each do |attachment| %>
+    <% @project.attachments.each do |attachment| %>
     <%= image_tag attachment, class: "card-img-top" %>
     <%= attachment.filename %>
-    <%= link_to "Supprimer", attachement_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+    <%= link_to "Supprimer", attachment_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
     <% end %>
     </div>
   </div>
