@@ -47,7 +47,8 @@ puts "#{Project.count} projects have been created."
 
 10.times do
   feat = Feat.create(
-    title: Faker::Company.name, 
+    title: Faker::Company.name,
+    description: Faker::Lorem.paragraph,
     project: Project.all.sample, 
     user: User.all.sample
     )

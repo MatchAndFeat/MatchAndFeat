@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     root to: 'static_pages#index'
     resources :users, except: [:new, :create]
     resources :projects, except: [:new, :create] do
-      resources :feats, only: [:update, :destroy]
+      resources :feats, only: [:update, :destroy, :index]
     end
     resources :skills, except: [:show]
   end
