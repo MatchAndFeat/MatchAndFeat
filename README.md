@@ -105,11 +105,11 @@ _Le lundi d'après, vous passerez devant les jurys avec qui vous discuterez de v
 
 | Nom | :notes: GitHub |
 | ---- | ------ |
-| Kévin PIRIOU | <a href="https://github.com/KevinPiriou" class="button danger">@D1sh</a> |
-| Hary ANDRIANARIOSA | <a href="https://github.com/HaryRabarijoely" class="button danger">@HaryRabarijoely</a> |
-| Lucas MARTIN | <a href="https://github.com/kalu6334" class="button danger">@kalu6334</a> |
-| Joffrey CAUGNON | <a href="https://github.com/joffrey7486" class="button danger">@joffrey7486</a> |
-| Florent DEVRIÈSE | <a href="https://github.com/fleopaulD" class="button danger">@fleopaulD</a> |
+| Kévin PIRIOU | <a href="https://github.com/KevinPiriou">@D1sh</a> |
+| Hary ANDRIANARIOSA | <a href="https://github.com/HaryRabarijoely">@HaryRabarijoely</a> |
+| Lucas MARTIN | <a href="https://github.com/kalu6334">@kalu6334</a> |
+| Joffrey CAUGNON | <a href="https://github.com/joffrey7486">@joffrey7486</a> |
+| Florent DEVRIÈSE | <a href="https://github.com/fleopaulD">@fleopaulD</a> |
 
     _@THP/moussaillon_
 
