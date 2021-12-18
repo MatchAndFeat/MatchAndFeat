@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :projects, :path => "/Projets" do
     resources :feats, except: [:index] ,:path => "/Feats"
   end
-  resources :attachements, only: [:destroy]
+  resources :attachments, only: [:destroy]
   resources :likes, only: [:update]
 
   scope '/checkout' do
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     root to: 'static_pages#index'
     resources :users, except: [:new, :create]
     resources :projects, except: [:new, :create] do
-      resources :feats, only: [:update, :destroy]
+      resources :feats, only: [:update, :destroy, :index]
     end
     resources :skills, except: [:show]
   end

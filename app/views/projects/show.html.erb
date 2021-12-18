@@ -37,7 +37,7 @@
     <h3 class="text-center">Fichiers liés à ce projet</h3>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
-      <% @project.attachements.each do |attachment|%>
+      <% @project.attachments.each do |attachment|%>
       <div class="col">
         <div class="card bg-primary text-center">
           <% if attachment.image? %>
@@ -68,7 +68,7 @@
       <div class="form-card-page form-floating d-flex flex-column mt-2">
         <%= f.text_field :title, placeholder: "Que veux tu apporter ? "%>
         <%= f.text_area :description, placeholder: "Description du feat...", class:'my-2', required: true %><br />
-        <%= f.file_field :attachements, multiple: true, class: "my-3" %>
+        <%= f.file_field :attachments, multiple: true, class: "my-3" %>
         <%= submit_tag "Je contribue", class:'btn btn-secondary m-2' %>
       </div>
       <% end %>
@@ -94,7 +94,7 @@
         </a>
       </div>
       <div class="card-footer text-muted">
-        <%= feat.attachements.count %> Fichiers liés : <% feat.attachements.each do |attachment| %>
+        <%= feat.attachments.count %> Fichiers liés : <% feat.attachments.each do |attachment| %>
         <%= link_to attachment.filename, rails_blob_path(attachment, disposition: "attachment") %>
         <% end %>
       </div>

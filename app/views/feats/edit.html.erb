@@ -10,14 +10,14 @@
     <h3>Fichiers liés à ton feat</h3>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
-      <% @feat.attachements.each do |attachement| %>
-      <% unless attachement.id == nil %>
+      <% @feat.attachments.each do |attachment| %>
+      <% unless attachment.id == nil %>
       <div class="d-flex flex-column align-item-center">
 
         <div class="card bg-primary text-center">
-          <%= image_tag attachement, class:"mt-2"%>
-          <%= attachement.filename %>
-          <%= link_to "Supprimer", attachement_path(attachement), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+          <%= image_tag attachment, class:"mt-2"%>
+          <%= attachment.filename %>
+          <%= link_to "Supprimer", attachment_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
         </div>
       </div>
       <% end %>
