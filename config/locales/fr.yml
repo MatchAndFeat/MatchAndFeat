@@ -1,12 +1,48 @@
 fr:
   activerecord:
+    attributes:
+      feat:
+        title: "Le titre"
+        description: "La description"
+      project:
+        title: "Le titre"
+        description: "La description"
+      user:
+        email: "L'email"
+        user_name: "Le pseudo"
+        social_link: "Le lien de réseau social"
     errors:
       models:
+        feat:
+          attributes:
+            title:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 150 caractères maximum"
+              blank: "ne doit pas être vide"
+            description:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 3000 caractères maximum"
+              blank: "ne doit pas être vide"
         project:
           attributes:
             title:
-              too_short: "Titre : minimum 5 caractères"
-              too_long: "Titre : maximum 150 caractères"
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 150 caractères maximum"
+              blank: "ne doit pas être vide"
             description:
-              too_short: "Description : minimum 5 caractères"
-              too_long: "Description : maximum 3000 caractères"
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 3000 caractères maximum"
+              blank: "ne doit pas être vide"
+        user:
+          attributes:
+            email:
+              blank: "ne peut pas être vide"
+              taken: "est déjà pris"
+              invalid: "n'est pas au bon format"
+            user_name:
+              blank: "ne peut pas être vide"
+              taken: "est déjà pris"
+  errors:
+    messages:
+      content_type_invalid: "n'est pas au bon format : .jpg .png .wav .mp3 .mp4 .txt"
+      file_size_out_of_range: "est supérieur à 20Mb"
