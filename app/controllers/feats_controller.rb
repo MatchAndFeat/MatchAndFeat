@@ -19,7 +19,11 @@ class FeatsController < ApplicationController
       flash[:success] = "Ton Feat a bien été publié !"
       redirect_to project_path(params[:project_id])
     else
-      flash[:warning] = "Il y eu un problème lors de la création de ton Feat."
+      error_string = []
+      @feat.errors.full_messages.each do |error|
+        error_string << error
+      end
+      flash[:warning] = error_string.join(", ")
       redirect_to project_path(params[:project_id])
     end
   end

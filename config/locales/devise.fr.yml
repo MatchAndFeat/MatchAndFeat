@@ -1,5 +1,4 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 fr:
   devise:
     confirmations:
@@ -61,5 +60,5 @@ fr:
       not_found: "n'a pas été trouvé(e)"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
-        one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
-        other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+        one: "1 erreur a empêché la sauvegarde :"
+        other: "%{count} erreurs ont empêché la sauvegarde :"

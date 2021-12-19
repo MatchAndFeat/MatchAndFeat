@@ -1,5 +1,4 @@
 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
-  <h4>Hooo... Il y a eu <%= pluralize(object.errors.count, "erreur") %> :(</h4>
   <ul>
     <% object.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
