@@ -1,3 +1,7 @@
+<% if @project.errors.any? %>
+<%= render "shared/error_messages", object: @project %>
+<% end %>
+
 <div class="container">
   <h2>Edition du projet</h2>
   <%= link_to 'Retour', admin_projects_path, class: 'btn btn-info btn-sm' %>
@@ -32,9 +36,11 @@
   <div class="card col-lg-6 mx-auto">
     <h2>Fichiers joints au projet</h2>
     <% @project.attachments.each do |attachment| %>
+    <% unless attachment.id == nil %>
     <%= image_tag attachment, class: "card-img-top" %>
     <%= attachment.filename %>
     <%= link_to "Supprimer", attachment_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+    <% end %>
     <% end %>
     </div>
   </div>

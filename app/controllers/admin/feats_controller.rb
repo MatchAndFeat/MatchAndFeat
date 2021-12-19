@@ -15,8 +15,8 @@ module Admin
         flash[:success] = "Le Feat a bien été édité"
         redirect_to admin_project_feats_path(@feat.project)
       else
-        flash[:warning] = "Il y a eu un problème lors de la modification du Feat."
-        render 'edit'
+        flash[:warning] = @feat.errors.full_messages.each { |error| error }.join(", ")
+        redirect_to admin_project_feats_path(params[:project_id])
       end
     end
 
