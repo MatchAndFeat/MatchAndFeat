@@ -12,7 +12,7 @@ RSpec.feature 'User can create a project' do
 
   def sign_up_with(email, password)
     visit new_user_registration_path
-    fill_in 'Email', with: email
+    fill_in 'email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
     click_button "S'inscrire"
