@@ -20,7 +20,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <h3 class="card-title"><%= @project.title %></h3>
-          <p class="card-text"><small class="text-muted">Crée le : <%= @project.created_at.strftime('%e %b %Y')%> par <%= @project.user.user_name %></small></p>
+          <p class="card-text"><small class="text-muted">Crée le : <%= @project.created_at.strftime('%e %b %Y')%> par <%=link_to @project.user.user_name, user_path(@project.user) %></small></p>
           <% if @project.user == current_user %>
           <%= link_to "Modifier", edit_project_path(@project),class:"link-modify fs-6" %>
           <%= link_to "Supprimer", project_path(@project), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer votre collaboration ?" }, class:"link-delete fs-6" %>
@@ -58,7 +58,7 @@
     <div class="card bg-primary border-top">
       <div class="card-header">
         <h4><%= feat.title %></h4>
-        <div class="text-muted small">Posté le : <%= feat.created_at.strftime('%e %b %Y')%> par <%= feat.user.user_name %></div>
+        <div class="text-muted small">Posté le : <%= feat.created_at.strftime('%e %b %Y')%> par <%= link_to feat.user.user_name, user_path(feat.user) %></div>
         <% if feat.user == current_user %>
         <%= link_to "Modifier", edit_project_feat_path(@project, feat),class:"link-modify fs-6" %>
         <%= link_to "Supprimer", project_feat_path(@project, feat), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ta contribution ?" }, class:"link-delete fs-6" %>
