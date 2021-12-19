@@ -5,24 +5,12 @@
 <div class="d-flex flex-column justify-content-center align-items-center text-center">
   <div class="col-lg-6">
     <h1>Modifie ton projet</h1>
+
     <%= render 'form', project: @project %>
 
     <h3>Fichiers liés à ce projet</h3>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
-      <% @project.attachments.each do |attachment| %>
-      <% unless attachment.id == nil %>
-      <div class="d-flex flex-column align-item-center">
-
-          <div class="card bg-primary text-center">
-            <%= image_tag attachment, class:"mt-2"%>
-            <%= attachment.filename %>
-            <%= link_to "Supprimer", attachment_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
-          </div>
-      </div>
-
-      <% end %>
-      <% end %>
-    </div>
+    <%= render "shared/attachments_display", source_object: @project, deletion_possibility: true %>
+    
   </div>
 </div>
