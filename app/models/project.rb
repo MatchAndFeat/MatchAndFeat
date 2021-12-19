@@ -16,7 +16,7 @@ class Project < ApplicationRecord
   validates :description, presence: true, length: { in: 5..3000 }
   validates :picture, 
     content_type: ['image/png', 'image/jpg', 'image/jpeg'],
-    size: { less_than: 3.megabytes }
+    size: { less_than: 5.megabytes }
   validates :attachments, 
     size: { less_than: 20.megabytes },
     content_type: ['image/png', 'image/jpg', 'image/jpeg',

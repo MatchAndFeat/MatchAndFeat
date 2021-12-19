@@ -1,0 +1,65 @@
+fr:
+  activerecord:
+    attributes:
+      feat:
+        title: "Le titre"
+        description: "La description"
+        attachments: "Un fichier joint"
+      project:
+        title: "Le titre"
+        description: "La description"
+        picture: "L'image d'illustration"
+        attachments: "Un fichier joint"
+      user:
+        email: "L'email"
+        user_name: "Le pseudo"
+        social_link: "Le lien de réseau social"
+        current_password: "Le mot de passe actuel"
+        social_link: "Le lien de réseau social"
+        password_confirmation: "La confirmation du mot de passe"
+        password: "Le mot de passe"
+    errors:
+      models:
+        feat:
+          attributes:
+            title:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 150 caractères maximum"
+              blank: "ne doit pas être vide"
+            description:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 3000 caractères maximum"
+              blank: "ne doit pas être vide"
+        project:
+          attributes:
+            title:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 150 caractères maximum"
+              blank: "ne doit pas être vide"
+            description:
+              too_short: "doit avoir 5 caractères minimum"
+              too_long: "doit avoir 3000 caractères maximum"
+              blank: "ne doit pas être vide"
+        user:
+          attributes:
+            email:
+              blank: "ne peut pas être vide"
+              taken: "est déjà pris"
+              invalid: "n'est pas au bon format"
+            user_name:
+              blank: "ne peut pas être vide"
+              taken: "est déjà pris"
+            current_password: 
+              blank: "ne peut pas être vide"
+            social_link:
+              invalid: "n'est pas au bon format (doit commencer par https:// ou http://)"
+            password_confirmation: 
+              too_short: "est trop court (6 caractères minimum)"
+            password:
+              too_short: "est trop court (6 caractères minimum)"
+
+
+  errors:
+    messages:
+      content_type_invalid: "n'est pas au bon format : .jpg .png .wav .mp3 .mp4 .txt"
+      file_size_out_of_range: "n'a pas la bonne taille (max 5 Mo pour l'image d'illustration et 20 Mo pour les pièces jointes"
