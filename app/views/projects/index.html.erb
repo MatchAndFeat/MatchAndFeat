@@ -30,6 +30,7 @@
         <div class="card-header bg-primary border-success d-flex justify-content-between align-items-center">
           <h5><%= project.title %></h5>
             <p class="text-muted"><em>Publié le <%= project.created_at.strftime('%e %b %Y')%></em></p>
+            <p class="text-muted"><em>Par <%= link_to project.user.user_name, user_path(project.user)%></em></p>
         </div>
         <div class="card-body bg-primary d-flex flex-column justify-content-around">
           <div class="mb-1 text-muted">
