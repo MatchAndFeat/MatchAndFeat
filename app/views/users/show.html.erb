@@ -48,7 +48,9 @@
         </tbody>
       </table><br><hr>
       <div class="actions text-center m-4">
+        <% if @user == current_user %>
         <%= link_to 'Modifier mon profil', edit_user_path,class:" btn  btn-outline-warning m-2" %>
+        <% end %>
       </div>
     </div>
   </div>
