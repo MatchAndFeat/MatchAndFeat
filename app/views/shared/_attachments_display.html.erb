@@ -1,0 +1,29 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
+  <% source_object.attachments.each do |attachment|%>
+  <% unless attachment.id == nil %>
+  <div class="col">
+    <div class="card bg-primary text-center">
+      <% if attachment.image? %>
+      <%= image_tag attachment.variant(resize: "400x400"), class: "card-img-top" %>
+      <% elsif attachment.audio? %>
+      <audio controls>
+        <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+      </audio>
+      <% elsif attachment.video? %>
+      <video controls width="300" height="300">
+        <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
+      </video>
+      <% end %>
+      <div class="card-body text-center">
+        <% if deletion_possibility && source_object.user == current_user %>
+          <%= link_to "Supprimer", attachment_path(attachment), data: { method: :delete, confirm: "Est tu sûr de vouloir supprimer ce fichier ?" }, class: "btn btn-danger my-2" %>
+        <% else %>
+          <%= link_to "Télécharger", rails_blob_path(attachment, disposition: "attachment"), class: "btn btn-primary" %>
+        <% end %>
+        <p class="text-muted"><%= attachment.filename %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>

@@ -36,36 +36,10 @@
     <hr>
     <h3 class="text-center">Fichiers liés à ce projet</h3>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-3">
-      <% @project.attachments.each do |attachment|%>
-      <div class="col">
-        <div class="card bg-primary text-center">
-          <% if attachment.image? %>
-          <%= image_tag attachment.variant(resize: "400x400"), class: "card-img-top" %>
-          <% elsif attachment.audio? %>
-          <audio controls>
-            <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
-          </audio>
-          <% elsif attachment.video? %>
-          <video controls width="300" height="300">
-            <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>">
-          </video>
-          <% end %>
-          <div class="card-body text-center">
-            <%= link_to "Télécharger", rails_blob_path(attachment, disposition: "attachment"), class: "btn btn-primary" %>
-            <p class="text-muted"><%= attachment.filename %></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
+    <%= render "shared/attachments_display", source_object: @project, deletion_possibility: false %>
 
     <hr>
     <h3 class="text-center">Feats</h3>
-
-
-
-
 
     <div class="field d-flex flex-column align-items-center justify-content-center">
       <%= form_for([@project, @feat], class:"bg-primary w-100", :method => "post") do |f| %>
