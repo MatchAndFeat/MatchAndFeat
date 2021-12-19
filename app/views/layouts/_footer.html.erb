@@ -17,18 +17,19 @@
       <div class="border border-warning"></div>
       <br>
       <p>© 2021 THP Created By <b>La Team :</b>
-        <a href="https://github.com/fleopaulD" target="_blank">Florent</a>
-        <a href="https://github.com/HaryRabarijoely" target="_blank">Hary</a>
-        <a href="https://github.com/joffrey7486" target="_blank">Joffrey</a>
-        <a href="https://github.com/kalu6334" target="_blank">Lucas</a>
-        <a href="https://github.com/KevinPiriou" target="_blank">Kevin</a>
+        <%= link_to "Florent", "https://github.com/fleopaulD", target: "_blank" %>
+        <%= link_to "Hary", "https://github.com/HaryRabarijoely", target: "_blank" %>
+        <%= link_to "Joffrey", "https://github.com/joffrey7486", target: "_blank" %>
+        <%= link_to "Lucas", "https://github.com/kalu6334", target: "_blank" %>
+        <%= link_to "Kevin", "https://github.com/KevinPiriou", target: "_blank" %>
       </p>
     </div>
     <div class="right-col">
       <h4><strong>MatchAndFeat</strong></h4>
         <p><em>lien pour plus de détails</em></p>
         <% if user_signed_in? %>
-        <a href="/about/#contact"class="btn btn-danger btn-sm m-2">Signalement </a>
+        <a href="/about"></a>
+        <%= link_to "Signalement", about_path(anchor: "contact"), class: "btn btn-danger btn-sm m-2" %>
         <% end %>
         <br>
         <a class="btn btn-info btn-sm m-2" href="https://github.com/MatchAndFeat/MatchAndFeat" target="_blank"><i class="fab fa-github"></i> Github </a>
