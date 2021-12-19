@@ -1,3 +1,7 @@
+<% if @user.errors.any? %>
+<%= render "shared/error_messages", object: @user %>
+<% end %>
+
 <div class="container">
   <h2>Modification d'un utilisateur</h2>
   <%= link_to 'Retour', admin_users_path, class: 'btn btn-info btn-sm' %>

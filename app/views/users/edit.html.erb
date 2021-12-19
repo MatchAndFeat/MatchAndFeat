@@ -1,20 +1,24 @@
+<% if @user.errors.any? %>
+<%= render "shared/error_messages", object: @user %>
+<% end %>
+
 <div class="d-flex justify-content-center align-items-center text-center">
   <main class="col-lg-6">
     <h2><%= current_user.user_name %></h2>
     <%= form_with(model: @user, local: true, html: {class: "w-100"}) do |f| %> 
-    <% if @user.avatar.attached? %>
+    <% if @user.avatar.attached? && @user.avatar.image?%>
     <div class= "field">
-      <%= image_tag @user.avatar.variant(resize: "200x200"), class: "rounded-circle" %>
+      <%= image_tag @user.avatar.variant(resize: "300x300"), class: "rounded-circle" %>
     </div>
     <% end %>
 
     <div class= "field my-3">
-        <%= f.label "Changez votre avatar" %><br />
+        <%= f.label "Change ton avatar" %><br />
         <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar"  %>
     </div>
 
     <div class="field my-3">
-        <%= f.label "Votre pseudo" %><br />
+        <%= f.label "Pseudo" %><br />
         <%= f.text_field  :user_name, autofocus: true, autocomplete: "pseudo" %>
     </div>       
 
@@ -24,7 +28,7 @@
     </div>
 
     <div class="my-3 text-center" >
-      <%= f.label "Vos points forts" %><br />
+      <%= f.label "Tes points forts" %><br />
       <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>
       <%= b.label(:"data-value" => b.value, class: "m-1") { b.check_box + " " + b.text } %>
       <% end %>

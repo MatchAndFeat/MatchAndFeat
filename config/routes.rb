@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => "/Mon_Profil"
 
-  resources :users, except: [:new, :index, :create]
+  resources :users, except: [:new, :index, :create], path: "/Profil"
   resources :projects, :path => "/Projets" do
     resources :feats, except: [:index] ,:path => "/Feats"
   end

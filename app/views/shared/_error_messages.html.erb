@@ -1,7 +1,8 @@
 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
-  <h4>Hooo... Il y a eu <%= pluralize(object.errors.count, "erreur") %> :(</h4>
-  <% object.errors.full_messages.each do |error| %>
-  <%= error %><br />
-  <% end %>
+  <ul>
+    <% object.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
