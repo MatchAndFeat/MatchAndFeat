@@ -18,8 +18,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    puts "#"*1000
-    puts @feat
     @feat = Feat.new
   end
 
