@@ -10,6 +10,8 @@ fr:
         description: "La description"
         picture: "L'image d'illustration"
         attachments: "Un fichier joint"
+      skill:
+        name: "Le nom"
       user:
         email: "L'email"
         user_name: "Le pseudo"
@@ -40,6 +42,11 @@ fr:
               too_short: "doit avoir 5 caractères minimum"
               too_long: "doit avoir 3000 caractères maximum"
               blank: "ne doit pas être vide"
+        skill:
+          attributes:
+            name:
+              blank: ne peut pas être vide
+              too_short: "est trop court (3 caractères minimum)"
         user:
           attributes:
             email:
@@ -57,7 +64,6 @@ fr:
               too_short: "est trop court (6 caractères minimum)"
             password:
               too_short: "est trop court (6 caractères minimum)"
-
 
   errors:
     messages:
