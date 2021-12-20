@@ -7,7 +7,7 @@ Rails.application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => 'apikey',
   :password => ENV['SENDGRID_PWD'],
-  :domain => 'https://matchandfeathp.herokuapp.com',
+  :domain => ENV['PRODUCTION_HOST'],
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,
