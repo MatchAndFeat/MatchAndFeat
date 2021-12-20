@@ -22,7 +22,7 @@
           <% if @user.social_link? %>
           <tr>
             <th scope="row", class="text-light">Réseau social :</th>
-            <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link, target: :_blank %></td> 
+            <td class="text-secondary"><%= link_to 'lien réseau social', @user.social_link, target: :_blank %></td>
           </tr>
           <% end %>
           <tr>
@@ -33,17 +33,21 @@
             </td>
           </tr>
           <tr>
-          <th scope="col", class="text-light"> Projects:</th>
-            <td class="text-secondary"><% @user.projects.each do |project| %>
-              <%= link_to project.title, project_path(project) %>
-            <% end %>
-            </td>
+          <th scope="col", class="text-light"> Projets:</th>
+            <ul>
+              <td class="text-secondary"><% @user.projects.each do |project| %>
+              <li><%= link_to project.title, project_path(project) %></li>
+              <% end %>
+              </td>
+            <ul>
           </tr>
           <tr>
             <th scope="col", class="text-light"> Feats:</th>
-            <td class="text-secondary"><% @user.feats.each do |feat| %>
-              <%= link_to feat.title, project_path(feat.project) %>
-            <% end %></td>
+            <ul>
+              <td class="text-secondary"><% @user.feats.each do |feat| %>
+                <li><%= link_to feat.title, project_path(feat.project) %></li>
+              <% end %></td>
+            </ul>
           </tr>
         </tbody>
       </table><br><hr>
