@@ -3,7 +3,7 @@
 [![forthebadge](https://raw.githubusercontent.com/fleopaulD/README-parts/main/Badges/ftb-hosted-on-heroku.svg)](https://matchandfeathp.herokuapp.com/)
 
 
-# Projet finale @THP / _**Match & Feat**_
+# Projet final @THP / _**Match & Feat**_
 
 _Le fameux, le projet final. Pendant deux semaines vous allez apprendre à travailler en équipe et sortir un produit de A à Z. Le projet final durera 2 semaines et sera sanctionné par un jury._
 
